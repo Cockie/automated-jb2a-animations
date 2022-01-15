@@ -353,8 +353,12 @@ Hooks.once('ready', async function () {
             case 'dcc':
                 Hooks.on("createChatMessage", async (msg) => { dccReady(msg) });
                 break;
+            case "sandbox":
+                Hooks.on("createChatMessage", async (msg) => { setupSandbox(msg) });
+                break;
             default:
                 Hooks.on("createChatMessage", async (msg) => {standardChat(msg) });
+            
         }
     }
     //Active Effect Hooks
@@ -1049,4 +1053,26 @@ async function dccReady(input) {
         trafficCop(handler);
     }
 
+}
+
+/*
+/ Sets Handler for Sandbox
+*/
+async function setupSandbox(msg) {
+    if (killAllAnimations) { return; }
+    let handler = await systemData.make(msg);
+    if (!handler.item || !handler.sourceToken) {
+        return;
+    }
+    /*if (game.user.id === msg.user.id) {
+        switch (true) {
+            case ((handler.animType === "t12") && (handler.animOverride)):
+                teleportation(handler);
+                break;
+        }
+    }
+    if (game.user.id !== msg.user.id) {
+        return;
+    }*/
+    trafficCop(handler);
 }

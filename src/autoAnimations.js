@@ -251,6 +251,9 @@ Hooks.once('ready', function () {
                     wfrpSkill(data, targets, info)
                 });
                 break;
+            case "sandbox":
+                Hooks.on("createChatMessage", async (msg) => { setupSandbox(msg) });
+                break;
         }
     }
 
@@ -687,6 +690,28 @@ async function wfrpSkill(data, targets, info) {
         default:
             trafficCop(handler);
     }
+}
+
+/*
+/ Sets Handler for Sandbox
+*/
+async function setupSandbox(msg) {
+    if (killAllAnimations) { return; }
+    let handler = await flagHandler.make(msg);
+    if (!handler.item || !handler.actorToken || handler.animKill) {
+        return;
+    }
+    /*if (game.user.id === msg.user.id) {
+        switch (true) {
+            case ((handler.animType === "t12") && (handler.animOverride)):
+                teleportation(handler);
+                break;
+        }
+    }
+    if (game.user.id !== msg.user.id) {
+        return;
+    }*/
+    trafficCop(handler);
 }
 
 

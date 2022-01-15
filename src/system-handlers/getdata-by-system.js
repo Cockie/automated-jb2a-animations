@@ -257,6 +257,74 @@ export class AASystemData {
         return { item, token, targets };
     }
 
+    static async sandbox(input) {
+		//console.debug("Autoanimations | Test :", input);
+        const itemId = this._extractItemIdSandbox(input.data?.content);
+		//console.debug(itemId);
+		const name = this._extractNameSandbox(input.data?.content);
+		//console.debug(name);
+		let tokens = canvas.tokens.controlled;
+		let token = null;
+		if (tokens.length > 0){
+			for (let i = 0; i < tokens.length; i++) {
+				//console.debug("Autoanimations | looping name:", tokens[i].actor.data.name);
+				if (tokens[i].actor.data.name.localeCompare(name) == 0){
+					token = tokens[i];
+					break;
+				}
+			}
+		} else {
+			tokens = canvas.tokens.placeables;
+			if (tokens.length > 0){
+				for (let i = 0; i < tokens.length; i++) {
+					//console.debug("Autoanimations | looping name:", tokens[i].actor.data.name);
+					if (tokens[i].actor.data.name.localeCompare(name) == 0){
+						token = tokens[i];
+						break;
+					}
+				}
+			} else {
+				ui.notifications.warn("No Tokens found");
+				return {};
+			}
+		}
+		if (!token) {
+			console.debug("Autoanimations | No token found:", input);
+			return {};
+		}
+		//console.debug("Autoanimations | token :", token);
+		//console.debug("Autoanimations | items :", token.actor.data.data.citems);
+        const item = token.actor.data.data.citems?.find( ({ id }) => id === itemId ) ?? "";
+		if (!item) {
+			return {};
+		}
+        const targets = Array.from(input.user.targets);
+
+        return { item, token, targets };
+    }
+
+    static _extractItemIdSandbox(content) {
+		//console.log("Autoanimations | Extract data-item-id for message :", $(content));
+		//console.log("Autoanimations | Extract data-item-id for message :", content);
+        try {
+            return $(content).find(".roll-citemlink").attr("id");
+        } catch (exception) {
+            console.debug("Autoanimations | Couldn´t extract data-item-id for message :", content);
+            return null;
+        }
+    }
+	
+	static _extractNameSandbox(content) {
+		//console.log("Autoanimations | Extract name for message :", $(content));
+		//console.log("Autoanimations | Extract name for message :", content);
+        try {
+            return $(content).find(".roll-sender-image").attr("title");
+        } catch (exception) {
+            console.debug("Autoanimations | Couldn´t extract name for message :", content);
+            return null;
+        }
+    }
+
     static _extractItemId(content) {
         try {
             return $(content).attr("data-item-id");

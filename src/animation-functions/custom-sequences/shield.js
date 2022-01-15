@@ -12,7 +12,7 @@ export async function shieldSpell(handler, animationData) {
     }
     let obj01 = moduleIncludes("jb2a_patreon") === true ? JB2APATREONDB : JB2AFREEDB;
 
-    let globalDelay = game.settings.get("autoanimations", "globaldelay");
+    let globalDelay = game.settings.get("autoanimations-modded", "globaldelay");
     await wait(globalDelay);
 
     async function buildShieldFile(jb2a, baseColor, variant, endeffect) {
@@ -25,9 +25,9 @@ export async function shieldSpell(handler, animationData) {
         color = color === "random" ? random_item(Object.keys(aaColorMenu.static.spell.shieldspell[variant])) : color;
         //const shieldVar = handler.options.shieldVar || "outro_fade";
 
-        const file01 = `autoanimations.static.spell.shieldspell.${variant}.${color}.intro`;
-        const file02 = `autoanimations.static.spell.shieldspell.${variant}.${color}.loop`;
-        const file03 = `autoanimations.static.spell.shieldspell.${variant}.${color}.${endeffect}`;
+        const file01 = `autoanimations-modded.static.spell.shieldspell.${variant}.${color}.intro`;
+        const file02 = `autoanimations-modded.static.spell.shieldspell.${variant}.${color}.loop`;
+        const file03 = `autoanimations-modded.static.spell.shieldspell.${variant}.${color}.${endeffect}`;
 
         const fileData = jb2a.static.spell.shieldspell["01"]["blue"]["intro"];
         const metadata = await getVideoDimensionsOf(fileData);

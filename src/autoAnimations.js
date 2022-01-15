@@ -58,36 +58,36 @@ Hooks.on('init', () => {
         return options.inverse(this);
     });
     loadTemplates([
-        'modules/autoanimations/src/custom-recognition/settings.html',
-        'modules/autoanimations/src/custom-recognition/autorec-templates/aa-melee-autorec.html',
-        'modules/autoanimations/src/custom-recognition/autorec-templates/aa-ranged-autorec.html',
-        'modules/autoanimations/src/custom-recognition/autorec-templates/aa-static-autorec.html',
-        'modules/autoanimations/src/custom-recognition/autorec-templates/aa-templates-autorec.html',
-        'modules/autoanimations/src/custom-recognition/autorec-templates/aa-auras-autorec.html',
-        'modules/autoanimations/src/custom-recognition/autorec-templates/aa-presets-autorec.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/animations.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/pre-postfx.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/animation-menus/item-melee.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/animation-menus/item-ranged.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/animation-menus/item-ontoken.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/animation-menus/item-templates.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/animation-menus/item-auras.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/animation-menus/item-presets.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/animation-menus/item-autoOverride.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/animation-menus/add-explosion.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/animation-menus/levels3d.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/animation-menus/add-3Dexplosion.html',
-        'modules/autoanimations/src/item-sheet-handlers/aa-templates/macrocall.html',
-        'modules/autoanimations/src/active-effects/aeMenus/ae-animations.html',
-        'modules/autoanimations/src/active-effects/aeMenus/ae-autorecMenu.html',
-        'modules/autoanimations/src/custom-recognition/import-data.html',
+        'modules/autoanimations-modded/src/custom-recognition/settings.html',
+        'modules/autoanimations-modded/src/custom-recognition/autorec-templates/aa-melee-autorec.html',
+        'modules/autoanimations-modded/src/custom-recognition/autorec-templates/aa-ranged-autorec.html',
+        'modules/autoanimations-modded/src/custom-recognition/autorec-templates/aa-static-autorec.html',
+        'modules/autoanimations-modded/src/custom-recognition/autorec-templates/aa-templates-autorec.html',
+        'modules/autoanimations-modded/src/custom-recognition/autorec-templates/aa-auras-autorec.html',
+        'modules/autoanimations-modded/src/custom-recognition/autorec-templates/aa-presets-autorec.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animations.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/pre-postfx.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animation-menus/item-melee.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animation-menus/item-ranged.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animation-menus/item-ontoken.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animation-menus/item-templates.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animation-menus/item-auras.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animation-menus/item-presets.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animation-menus/item-autoOverride.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animation-menus/add-explosion.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animation-menus/levels3d.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animation-menus/add-3Dexplosion.html',
+        'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/macrocall.html',
+        'modules/autoanimations-modded/src/active-effects/aeMenus/ae-animations.html',
+        'modules/autoanimations-modded/src/active-effects/aeMenus/ae-autorecMenu.html',
+        'modules/autoanimations-modded/src/custom-recognition/import-data.html',
     ]);
 
 })
 
 // sets the A-A button on the Item Sheet title bar
 Hooks.on(`renderItemSheet`, async (app, html, data) => {
-    if (!game.user.isGM && game.settings.get("autoanimations", "hideFromPlayers")) {
+    if (!game.user.isGM && game.settings.get("autoanimations-modded", "hideFromPlayers")) {
         return;
     }
     const pf2eRuleTypes = ['condition', 'effect'];
@@ -107,7 +107,7 @@ Hooks.on(`renderItemSheet`, async (app, html, data) => {
 });
 
 Hooks.on(`renderActiveEffectConfig`, async (app, html, data) => {
-    if (!game.user.isGM && game.settings.get("autoanimations", "hideFromPlayers")) {
+    if (!game.user.isGM && game.settings.get("autoanimations-modded", "hideFromPlayers")) {
         return;
     }
     const aaBtn = $(`<a class="aa-item-settings" title="A-A"><i class="fas fa-biohazard"></i>A-A</a>`);
@@ -123,8 +123,8 @@ Hooks.on(`renderActiveEffectConfig`, async (app, html, data) => {
 // Registers Database with Sequencer
 Hooks.on("aa.ready", () => {
     let obj01 = moduleIncludes("jb2a_patreon") === true ? JB2APATREONDB : JB2AFREEDB;
-    Sequencer.Database.registerEntries("autoanimations", obj01, true);
-    if (game.settings.get("autoanimations", "killAllAnim") === "off") {
+    Sequencer.Database.registerEntries("autoanimations-modded", obj01, true);
+    if (game.settings.get("autoanimations-modded", "killAllAnim") === "off") {
         console.log("ANIMATIONS ARE OFF")
         socket.off('module.sequencer')//
         killAllAnimations = true;
@@ -133,10 +133,10 @@ Hooks.on("aa.ready", () => {
 
 Hooks.once('ready', async function () {
     aaSettings();
-    const s3Check = game.settings.get('autoanimations', 'jb2aLocation');
+    const s3Check = game.settings.get('autoanimations-modded', 'jb2aLocation');
     const jb2aPatreonFound = moduleIncludes("jb2a_patreon");
     //const jb2aFreeFound = moduleIncludes("JB2A_DnD5e");
-    let jb2aPath = game.settings.get('autoanimations', 'jb2aLocation');
+    let jb2aPath = game.settings.get('autoanimations-modded', 'jb2aLocation');
     let s3Patreon;
   
     if (!jb2aPath || jb2aPath === "null") { 
@@ -171,11 +171,11 @@ Hooks.once('ready', async function () {
             ui.notifications.error(game.i18n.format("AUTOANIM.error"));
         }
     }
-    autoRecMigration.handle(game.settings.get('autoanimations', 'aaAutorec'))
+    autoRecMigration.handle(game.settings.get('autoanimations-modded', 'aaAutorec'))
     if (game.modules.get("midi-qol")?.active) {
         log("midi IS active");
         Hooks.on("deleteItem", async (item) => {storeDeletedItems(item)})
-        switch (game.settings.get("autoanimations", "playonDamage")) {
+        switch (game.settings.get("autoanimations-modded", "playonDamage")) {
             case (true):
                 Hooks.on("midi-qol.DamageRollComplete", (workflow) => { setUpMidi(workflow) });
                 //Hooks.on('midi-qol.preambleComplete', (workflow) => { midiAOE(workflow) });
@@ -189,7 +189,7 @@ Hooks.once('ready', async function () {
                 Hooks.on("createChatMessage", (msg) => { midiTemplateAnimations(msg) });
                 break;
         }
-        if (game.settings.get("autoanimations", "EnableCritical") || game.settings.get("autoanimations", "EnableCriticalMiss")) {
+        if (game.settings.get("autoanimations-modded", "EnableCritical") || game.settings.get("autoanimations-modded", "EnableCriticalMiss")) {
             Hooks.on("midi-qol.AttackRollComplete", (workflow) => { criticalCheck(workflow) })
         }
     } else {
@@ -251,7 +251,7 @@ Hooks.once('ready', async function () {
                         starFinder(data, msg)
                     }
                 });
-                if (game.settings.get("autoanimations", "playonDamage")) {
+                if (game.settings.get("autoanimations-modded", "playonDamage")) {
                     Hooks.on("damageRolled", async (data) => {
                         Hooks.once("createChatMessage", async (msg) => {
                             if (msg.user.id !== game.user.id) { return };
@@ -422,7 +422,7 @@ Hooks.once('ready', async function () {
             break;
         case "dnd5e":
             Hooks.on("createActiveEffect", (effect, data, userId) => {
-                if (game.settings.get("autoanimations", "disableAEAnimations")) {
+                if (game.settings.get("autoanimations-modded", "disableAEAnimations")) {
                     console.log(`DEBUG | Automated Animations | Active Effect Animations are Disabled`);
                     return;
                 }
@@ -439,7 +439,7 @@ Hooks.once('ready', async function () {
                 }
             });
             Hooks.on("updateActiveEffect", (data, toggle, other, userId) => {
-                if (game.settings.get("autoanimations", "disableAEAnimations")) {
+                if (game.settings.get("autoanimations-modded", "disableAEAnimations")) {
                     console.log(`DEBUG | Automated Animations | Active Effect Animations are Disabled`);
                     return;
                 }
@@ -460,7 +460,7 @@ Hooks.once('ready', async function () {
             break;
         case "pf1":
             Hooks.on("createActiveEffect", (effect, data, userId) => {
-                if (game.settings.get("autoanimations", "disableAEAnimations")) {
+                if (game.settings.get("autoanimations-modded", "disableAEAnimations")) {
                     console.log(`DEBUG | Automated Animations | Active Effect Animations are Disabled`);
                     return;
                 }
@@ -474,7 +474,7 @@ Hooks.once('ready', async function () {
             });
             /*
             Hooks.on("updateActiveEffect", (data, toggle, other, userId) => {
-                if (game.settings.get("autoanimations", "disableAEAnimations")) {
+                if (game.settings.get("autoanimations-modded", "disableAEAnimations")) {
                     console.log(`DEBUG | Automated Animations | Active Effect Animations are Disabled`);
                     return;
                 }
@@ -614,11 +614,11 @@ async function criticalCheck(workflow) {
     let fumble = workflow.isFumble;
     let token;
 
-    let critAnim = game.settings.get("autoanimations", "CriticalAnimation");
-    let critMissAnim = game.settings.get("autoanimations", "CriticalMissAnimation");
+    let critAnim = game.settings.get("autoanimations-modded", "CriticalAnimation");
+    let critMissAnim = game.settings.get("autoanimations-modded", "CriticalMissAnimation");
 
     switch (true) {
-        case (game.settings.get("autoanimations", "EnableCritical") && critical):
+        case (game.settings.get("autoanimations-modded", "EnableCritical") && critical):
             token = canvas.tokens.get(workflow.tokenId);
             new Sequence()
                 .effect()
@@ -626,7 +626,7 @@ async function criticalCheck(workflow) {
                 .atLocation(token)
                 .play()
             break;
-        case (game.settings.get("autoanimations", "EnableCriticalMiss") && fumble):
+        case (game.settings.get("autoanimations-modded", "EnableCriticalMiss") && fumble):
             token = canvas.tokens.get(workflow.tokenId);
             new Sequence()
                 .effect()
@@ -645,7 +645,7 @@ async function setUp5eCore(msg) {
     if (killAllAnimations) { return; }
     if (msg.user.id !== game.user.id) { return };
 
-    const animationNow = game.settings.get("autoanimations", "playonDamageCore");
+    const animationNow = game.settings.get("autoanimations-modded", "playonDamageCore");
     let handler;
     let rollType;
     switch (game.system.id) {
@@ -848,7 +848,7 @@ async function pf2eReady(msg) {
     const itemType = handler.itemType;
     let damage; //= /*handler.item.damageValue ||*/ //handler.item?.data.data.damage?.length || handler.item?.data?.data?.damage?.value["0"]?.value;
     const spellType = handler.item?.data?.data?.spellType?.value ?? "utility";
-    const playOnDmg = game.settings.get("autoanimations", "playonDamageCore")
+    const playOnDmg = game.settings.get("autoanimations-modded", "playonDamageCore")
     if (handler.shouldPlayImmediately && !msg.data.flavor?.toLowerCase().includes("damage")) {
         trafficCop(handler);
         return;

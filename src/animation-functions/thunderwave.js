@@ -45,7 +45,7 @@ export async function thunderwaveAuto(handler, animationData, config) {
     const anFile = filePath[getPosition.type][color]
     if (handler.debug) { aaDebugger("Thunderwave Animation Start", data, anFile) }
 
-    let globalDelay = game.settings.get("autoanimations", "globaldelay");
+    let globalDelay = game.settings.get("autoanimations-modded", "globaldelay");
     await wait(globalDelay);
 
     if (data.removeTemplate) {

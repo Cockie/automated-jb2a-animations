@@ -83,5 +83,5 @@ export function endTiming(itemName) {
 }
 
 export function removeDefaults(item) {
-    item.unsetFlag("autoanimations", "defaults")
+    item.unsetFlag("autoanimations-modded", "defaults")
 }

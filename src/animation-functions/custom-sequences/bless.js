@@ -14,7 +14,7 @@ export async function bless(handler, animationData) {
     }
     let obj01 = moduleIncludes("jb2a_patreon") === true ? JB2APATREONDB : JB2AFREEDB;
 
-    let globalDelay = game.settings.get("autoanimations", "globaldelay");
+    let globalDelay = game.settings.get("autoanimations-modded", "globaldelay");
     await wait(globalDelay);
 
     const data = animationData.primary;
@@ -162,6 +162,7 @@ async function buildBlessFile(jb2a, baseColor) {
     const file02 = `autoanimations.static.spell.bless.loop.${color}`;
     //const ctaFile01 = jb2a.static.spell.bless['01'][color]["intro"];
     //const ctaFile02 = jb2a.static.spell.bless['01'][color]["loop"];
+
 
     //let metadata = await getVideoDimensionsOf(ctaFile01);
     //let metadata2 = await getVideoDimensionsOf(ctaFile02);

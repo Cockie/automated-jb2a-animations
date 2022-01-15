@@ -17,7 +17,7 @@ export default class systemData {
     }
 
     constructor(systemData, flagData, msg) {
-        this.debug = game.settings.get("autoanimations", "debug");
+        this.debug = game.settings.get("autoanimations-modded", "debug");
         this._log("Getting System Data")
 
         const data = systemData;
@@ -65,7 +65,7 @@ export default class systemData {
         this.targetsId = Array.from(this.allTargets.filter(actor => actor.id).map(actor => actor.id));
 
         //midi-qol specific settings
-        this.playOnMiss = data.playOnMiss || (midiActive || game.system.id === 'pf2e' ? game.settings.get("autoanimations", "playonmiss") : false) || false;
+        this.playOnMiss = data.playOnMiss || (midiActive || game.system.id === 'pf2e' ? game.settings.get("autoanimations-modded", "playonmiss") : false) || false;
         //this.playOnMiss = true;
         const midiSettings = midiActive ? game.settings.get("midi-qol", "ConfigSettings") : false
         this._gmAD = midiActive ? midiSettings?.gmAutoDamage : "";
@@ -91,7 +91,7 @@ export default class systemData {
         }
         
         this.animEnd = endTiming(this.animNameFinal);
-        this.autorecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        this.autorecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
 
         this.rinsedName = this.itemName ? AutorecFunctions._rinseName(this.itemName) : "noitem";
         this.isAutorecTemplateItem = AutorecFunctions._autorecNameCheck(AutorecFunctions._getAllNamesInSection(this.autorecSettings, 'templates'), this.rinsedName);
@@ -134,7 +134,7 @@ export default class systemData {
         this.isOverrideAura = this.animType === "aura" && this.isCustomized ? true: false;
         this.isOverrideTeleport = (this.animType === "preset" && this.flags.animation === "teleportation") || this.isAutorecTeleport ? true : false;
         //this.isAutorecTeleport = this.autorecObject.menuSection === "preset" && this.autorecObject.animation === 'teleportation' ? true: false;
-        this.decoupleSound = game.settings.get("autoanimations", "decoupleSound");
+        this.decoupleSound = game.settings.get("autoanimations-modded", "decoupleSound");
         this.isThunderwave5e = (this.animType === 'preset' && this.isCustomized && this.flags.animation === 'thunderwave'); 
     }
 

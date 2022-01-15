@@ -459,7 +459,7 @@ export class AAanimationData {
     }
 
     static howToDelete(type) {
-        if (game.settings.get("autoanimations", "noTips")) { return; }
+        if (game.settings.get("autoanimations-modded", "noTips")) { return; }
         switch (type) {
             case 'overheadtile':
                 ui.notifications.info("This is an OVERHEAD Tile. Use the Tile Foreground Layer to remove the Animation")

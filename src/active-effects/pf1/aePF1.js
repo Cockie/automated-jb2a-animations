@@ -19,7 +19,7 @@ export async function createActiveEffectsPF1(effect) {
     const wait = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
     //await wait(150)
 
-    const aaDebug = game.settings.get("autoanimations", "debug")
+    const aaDebug = game.settings.get("autoanimations-modded", "debug")
 
     if (killAllAnimations) { return; }
     /*
@@ -116,12 +116,12 @@ export async function deleteActiveEffectsPF1(effect) {
     const aeToken = canvas.tokens.placeables.find(token => token.actor?.effects?.get(effect.id))
     if (effect.data?.flags?.pf1?.origin?.item) {
         let item = aeToken.actor.items.get(effect.data?.flags?.pf1?.origin?.item)
-        let flags = item?.data?.flags?.autoanimations;
+        let flags = item?.data?.flags?.autoanimationsmodded;
         if (flags) {
-            effect.data.flags.autoanimations = flags;
+            effect.data.flags.autoanimationsmodded = flags;
         }
     }
-    const aaDebug = game.settings.get("autoanimations", "debug")
+    const aaDebug = game.settings.get("autoanimations-modded", "debug")
     //if (effect.data?.flags?.pf1?.origin?.item) {
         //effect = aeToken.actor.items.get(effect.data?.flags?.pf1?.origin?.item)
     //}
@@ -233,7 +233,7 @@ export async function toggleActiveEffectsPF1(effect, toggle) {
 }
 
 export async function checkConcentration(effect) {
-    const aaDebug = game.settings.get("autoanimations", "debug")
+    const aaDebug = game.settings.get("autoanimations-modded", "debug")
 
     // Check effect label and return if it is not equal to "concentrating"
     const label = effect.data?.label || "";

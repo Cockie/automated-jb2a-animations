@@ -25,16 +25,16 @@ export default function aaSettings() {
         },
     };
 
-    game.settings.registerMenu('autoanimations', menuAAAutoRecSettings.key, menuAAAutoRecSettings.config);
+    game.settings.registerMenu('autoanimations-modded', menuAAAutoRecSettings.key, menuAAAutoRecSettings.config);
     game.settings.register(
-        'autoanimations',
+        'autoanimations-modded',
         AutoRecSettings.key,
         mergeObject(AutoRecSettings.config, {
             default: aaAutorec.defaultConfiguration
         }, true, true),
     );
 
-    game.settings.register("autoanimations", "killAllAnim", {
+    game.settings.register("autoanimations-modded", "killAllAnim", {
         name: game.i18n.format("AUTOANIM.toggleAnimations"),
         hint: game.i18n.format("AUTOANIM.toggleAnimations_hint"),
         scope: "client",
@@ -54,7 +54,7 @@ export default function aaSettings() {
             }
         }
     })
-    game.settings.register("autoanimations", "disableAutoRec", {
+    game.settings.register("autoanimations-modded", "disableAutoRec", {
         name: game.i18n.format("AUTOANIM.settingDisableAutoRec"),
         hint: game.i18n.format("AUTOANIM.settingDisableAutoRecHint"),
         scope: "client",
@@ -62,7 +62,7 @@ export default function aaSettings() {
         type: Boolean,
         default: false,
     })
-    game.settings.register("autoanimations", "globaldelay", {
+    game.settings.register("autoanimations-modded", "globaldelay", {
         name: game.i18n.format("AUTOANIM.globaldelay_name"),
         hint: game.i18n.format("AUTOANIM.globaldelay_hint"),
         scope: "world",
@@ -70,7 +70,7 @@ export default function aaSettings() {
         default: 100,
         type: Number
     })
-    game.settings.register("autoanimations", "videoLoop", {
+    game.settings.register("autoanimations-modded", "videoLoop", {
         name: game.i18n.format("AUTOANIM.animPreview"),
         hint: game.i18n.format("AUTOANIM.animPreviewHint"),
         scope: "world",
@@ -83,7 +83,7 @@ export default function aaSettings() {
         default: "0",
         config: true
     })
-    game.settings.register("autoanimations", "jb2aLocation", {
+    game.settings.register("autoanimations-modded", "jb2aLocation", {
         name: game.i18n.format("AUTOANIM.s3Name"),
         hint: game.i18n.format("AUTOANIM.s3Hint"),
         scope: 'world',
@@ -92,7 +92,7 @@ export default function aaSettings() {
         default: "",
         onChange: () => { window.location.reload() }
     });
-    game.settings.register("autoanimations", "hideFromPlayers", {
+    game.settings.register("autoanimations-modded", "hideFromPlayers", {
         name: game.i18n.format("AUTOANIM.animtab_name"),
         hint: game.i18n.format("AUTOANIM.animtab_hint"),
         scope: "world",
@@ -100,7 +100,7 @@ export default function aaSettings() {
         type: Boolean,
         default: false,
     });
-    game.settings.register("autoanimations", "decoupleSound", {
+    game.settings.register("autoanimations-modded", "decoupleSound", {
         name: game.i18n.format("AUTOANIM.decoupleSounds"),
         hint: game.i18n.format("AUTOANIM.decoupleSounds_hint"),
         scope: "world",
@@ -108,7 +108,7 @@ export default function aaSettings() {
         type: Boolean,
         default: false,
     })
-    game.settings.register("autoanimations", "rangeSwitch", {
+    game.settings.register("autoanimations-modded", "rangeSwitch", {
         name: game.i18n.format("AUTOANIM.settingRangeSwitch"),
         hint: game.i18n.format("AUTOANIM.settingRangeSwitchhint"),
         scope: "client",
@@ -116,7 +116,7 @@ export default function aaSettings() {
         type: Boolean,
         default: false,
     })
-    game.settings.register("autoanimations", "noTips", {
+    game.settings.register("autoanimations-modded", "noTips", {
         name: game.i18n.format("AUTOANIM.noTips"),
         hint: game.i18n.format("AUTOANIM.noTipsHint"),
         scope: "client",
@@ -231,7 +231,7 @@ export default function aaSettings() {
 			break;
 		
         case "demonlord": {
-            game.settings.register("autoanimations", "playtrigger", {
+            game.settings.register("autoanimations-modded", "playtrigger", {
                 name: game.i18n.format("AUTOANIM.demonlordtrigger_name"),
                 hint: game.i18n.format("AUTOANIM.demonlordtrigger_hint"),
                 scope: "world",
@@ -249,7 +249,7 @@ export default function aaSettings() {
             break
         }
         case "sfrpg": {
-            game.settings.register("autoanimations", "playonDamage", {
+            game.settings.register("autoanimations-modded", "playonDamage", {
                 name: game.i18n.format("AUTOANIM.midiondmg_name"),
                 hint: game.i18n.format("AUTOANIM.midiondmg_hint"),
                 scope: 'world',
@@ -262,7 +262,7 @@ export default function aaSettings() {
             break;
         case "dnd5e":
         case "sw5e":
-            game.settings.register("autoanimations", "disableAEAnimations", {
+            game.settings.register("autoanimations-modded", "disableAEAnimations", {
                 name: game.i18n.format("AUTOANIM.disableAEAnimations"),
                 hint: game.i18n.format("AUTOANIM.disableAEAnimationsHint"),
                 scope: 'world',
@@ -271,7 +271,7 @@ export default function aaSettings() {
                 config: true,
             })
             if (game.modules.get("midi-qol")?.active) {
-                game.settings.register("autoanimations", "playonhit", {
+                game.settings.register("autoanimations-modded", "playonhit", {
                     name: game.i18n.format("AUTOANIM.midionhit_name"),
                     hint: game.i18n.format("AUTOANIM.midionhit_hint"),
                     scope: 'world',
@@ -279,7 +279,7 @@ export default function aaSettings() {
                     default: false,
                     config: true,
                 });
-                game.settings.register("autoanimations", "playonmiss", {
+                game.settings.register("autoanimations-modded", "playonmiss", {
                     name: game.i18n.format("AUTOANIM.midionmiss_name"),
                     hint: game.i18n.format("AUTOANIM.midionmiss_hint"),
                     scope: `world`,
@@ -287,7 +287,7 @@ export default function aaSettings() {
                     default: false,
                     config: true,
                 });
-                game.settings.register("autoanimations", "playonDamage", {
+                game.settings.register("autoanimations-modded", "playonDamage", {
                     name: game.i18n.format("AUTOANIM.midiondmg_name"),
                     hint: game.i18n.format("AUTOANIM.midiondmg_hint"),
                     scope: 'world',
@@ -296,7 +296,7 @@ export default function aaSettings() {
                     config: true,
                     onChange: () => { window.location.reload() }
                 });
-                game.settings.register("autoanimations", "EnableCritical", {
+                game.settings.register("autoanimations-modded", "EnableCritical", {
                     name: game.i18n.format("AUTOANIM.crithit_name"),
                     hint: game.i18n.format("AUTOANIM.crithit_hint"),
                     scope: 'world',
@@ -305,7 +305,7 @@ export default function aaSettings() {
                     config: true,
                     onchange: () => { window.location.reload() }
                 });
-                game.settings.register("autoanimations", "CriticalAnimation", {
+                game.settings.register("autoanimations-modded", "CriticalAnimation", {
                     name: game.i18n.format("AUTOANIM.crithitAnim_name"),
                     //name: "Choose A File",
                     scope: 'world',
@@ -313,7 +313,7 @@ export default function aaSettings() {
                     type: String,
                     filePicker: "imagevideo"
                 });
-                game.settings.register("autoanimations", "EnableCriticalMiss", {
+                game.settings.register("autoanimations-modded", "EnableCriticalMiss", {
                     name: game.i18n.format("AUTOANIM.critmiss_name"),
                     hint: game.i18n.format("AUTOANIM.critmiss_hint"),
                     scope: 'world',
@@ -322,7 +322,7 @@ export default function aaSettings() {
                     config: true,
                     onchange: () => { window.location.reload() }
                 });
-                game.settings.register("autoanimations", "CriticalMissAnimation", {
+                game.settings.register("autoanimations-modded", "CriticalMissAnimation", {
                     name: game.i18n.format("AUTOANIM.critmissAnim_name"),
                     scope: 'world',
                     config: true,
@@ -330,7 +330,7 @@ export default function aaSettings() {
                     filePicker: "imagevideo"
                 });
             } else {
-                game.settings.register("autoanimations", "playonDamageCore", {
+                game.settings.register("autoanimations-modded", "playonDamageCore", {
                     name: game.i18n.format("AUTOANIM.coreondmg_name"),
                     hint: game.i18n.format("AUTOANIM.coreondmg_hint"),
                     scope: 'world',
@@ -341,7 +341,7 @@ export default function aaSettings() {
             }
             break;
         case "pf2e": {
-            game.settings.register("autoanimations", "playonDamageCore", {
+            game.settings.register("autoanimations-modded", "playonDamageCore", {
                 name: game.i18n.format("AUTOANIM.coreondmg_name"),
                 hint: game.i18n.format("AUTOANIM.coreondmg_hint"),
                 scope: 'world',
@@ -349,7 +349,7 @@ export default function aaSettings() {
                 default: false,
                 config: true,
             });
-            game.settings.register("autoanimations", "playonmiss", {
+            game.settings.register("autoanimations-modded", "playonmiss", {
                 name: game.i18n.format("AUTOANIM.midionmiss_name"),
                 hint: "Requires Animations to be played on Attack rolls",
                 scope: `world`,
@@ -357,7 +357,7 @@ export default function aaSettings() {
                 default: false,
                 config: true,
             });
-            game.settings.register("autoanimations", "disableNestedEffects", {
+            game.settings.register("autoanimations-modded", "disableNestedEffects", {
                 name: game.i18n.format("AUTOANIM.disableNested"),
                 hint: game.i18n.format("AUTOANIM.disableNestedHint"),
                 scope: `world`,
@@ -368,7 +368,7 @@ export default function aaSettings() {
         }
             break;
         case "pf1": {
-            game.settings.register("autoanimations", "disableAEAnimations", {
+            game.settings.register("autoanimations-modded", "disableAEAnimations", {
                 name: game.i18n.format("AUTOANIM.disableAEAnimations"),
                 hint: game.i18n.format("AUTOANIM.disableAEAnimationsHint"),
                 scope: 'world',
@@ -391,7 +391,7 @@ export default function aaSettings() {
             break;
     }
 
-    game.settings.register("autoanimations", "debug", {
+    game.settings.register("autoanimations-modded", "debug", {
         name: game.i18n.format("AUTOANIM.debugging"),
         scope: "world",
         config: true,

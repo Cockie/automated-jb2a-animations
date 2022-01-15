@@ -99,7 +99,7 @@ Teleport Preset
   
 1.0.1 and 1.0.2  
 * Corrected Automatic Recognition Menu import errors.  
-* Automatic Recognition Menu is now localized. This only affects new installations. Command line prompt of game.settings.set('autoanimations', 'aaAutorec') will revert your menu to the base menu, but localized if you need to change it.  
+* Automatic Recognition Menu is now localized. This only affects new installations. Command line prompt of game.settings.set('autoanimations-modded', 'aaAutorec') will revert your menu to the base menu, but localized if you need to change it.  
 * Updated menus for the JB2A Darrington release (minus Side Impacts for now)  
 * Updated Japanese localization file thanks to Touge  
   

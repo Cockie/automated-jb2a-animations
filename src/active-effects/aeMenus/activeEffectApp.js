@@ -11,7 +11,7 @@ export class AAActiveEffectMenu extends FormApplication {
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            template: './modules/autoanimations/src/active-effects/aeMenus/ae-central.html',
+            template: './modules/autoanimations-modded/src/active-effects/aeMenus/ae-central.html',
             id: 'AA-item-settings',
             class:'AA-item-app',
             title: game.i18n.localize("AUTOANIM.tabTitle"),
@@ -48,7 +48,7 @@ export class AAActiveEffectMenu extends FormApplication {
         const animType = flags.autoanimations?.animType;
 
         const autoCheck = AutorecFunctions._checkAutoRecAefx(oldName);
-        const autoObject = autoCheck ? AutorecFunctions._findObjectFromAefx(game.settings.get('autoanimations', 'aaAutorec'), AutorecFunctions._rinseName(oldName)) : {};
+        const autoObject = autoCheck ? AutorecFunctions._findObjectFromAefx(game.settings.get('autoanimations-modded', 'aaAutorec'), AutorecFunctions._rinseName(oldName)) : {};
 
         const videoPreview = override ? AATabFunctions._customPreview(flags, patreon) : AutorecFunctions._autoPreviewAefx(oldName, patreon, flags)
         let content = "";
@@ -58,7 +58,7 @@ export class AAActiveEffectMenu extends FormApplication {
             case !videoPreview:
                 break;
             default:
-                switch (game.settings.get("autoanimations", "videoLoop")) {
+                switch (game.settings.get("autoanimations-modded", "videoLoop")) {
                     case "0":
                         break;
                     case "1":
@@ -96,7 +96,7 @@ export class AAActiveEffectMenu extends FormApplication {
 
             content: content,
 
-            //currentVersion: !flags.autoanimations?.version ? this.object.setFlag('autoanimations', 'version', currentFlagVersion) : "",
+            //currentVersion: !flags.autoanimations?.version ? this.object.setFlag('autoanimations-modded', 'version', currentFlagVersion) : "",
             currentVersion: currentFlagVersion,
             isGM: game.user.isGM ? true : false,
         };

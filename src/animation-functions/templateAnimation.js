@@ -31,7 +31,7 @@ export async function templateAnimation(handler, animationData, config) {
 
     if (handler.debug) { aaDebugger("Template Animation Start", animationData, tempAnimation) }
 
-    let globalDelay = game.settings.get("autoanimations", "globaldelay");
+    let globalDelay = game.settings.get("autoanimations-modded", "globaldelay");
     await wait(globalDelay);
 
 

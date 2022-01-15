@@ -23,7 +23,7 @@ import { thunderwaveAuto } from "../animation-functions/thunderwave.js";
 const wait = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
 export async function trafficCop(handler) {
-    const aaDebug = game.settings.get("autoanimations", "debug")
+    const aaDebug = game.settings.get("autoanimations-modded", "debug")
 
     if (game.Levels3DPreview?._active) {
         if (handler.flags?.levels3d?.type) {
@@ -31,7 +31,7 @@ export async function trafficCop(handler) {
             const animationData = await AAanimationData._getAnimationData(handler);
             particleEffects(handler, false, animationData);
             return;
-        } else if (!game.settings.get("autoanimations", "disableAutoRec")) {
+        } else if (!game.settings.get("autoanimations-modded", "disableAutoRec")) {
             if (aaDebug) { aaDebugger("Automatic Recognition Beginning for Particle System") }
             const autoName = AutorecFunctions._rinseName(handler.itemName); //removes all spaces in the name
             const isAuto = AutorecFunctions.foundInAutorec(handler.autorecSettings, autoName);
@@ -90,7 +90,7 @@ export async function trafficCop(handler) {
     let aaTemplateHook;
 
     //const animationData = isCustom ? await AAanimationData._getAnimationData(handler) : await AAanimationData._getAnimationData(isAutorec)
-    if (isCustom || (isAutorec && !game.settings.get("autoanimations", "disableAutoRec"))) {
+    if (isCustom || (isAutorec && !game.settings.get("autoanimations-modded", "disableAutoRec"))) {
         let animType = isCustom ? handler.animType : isAutorec.menuSection;
         let presetType = isCustom ? handler.flags?.animation : isAutorec.animation;
         if (!isCustom && animType === 'aefx') {

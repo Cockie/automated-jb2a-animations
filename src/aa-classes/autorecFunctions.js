@@ -39,7 +39,7 @@ export class AutorecFunctions {
 
     /**
      * 
-     * @param {game.settings.get('autoanimations', 'aaAutorec')} settings 
+     * @param {game.settings.get('autoanimations-modded', 'aaAutorec')} settings 
      * @param {Item name with all spaces removed} name 
      * @returns Returns TRUE if it is found in the Autorec Menus, otherwise FALSE
      */
@@ -101,7 +101,7 @@ export class AutorecFunctions {
 
     /**
      * 
-     * @param {game.settings.get('autoanimations', 'Autorec')} obj 
+     * @param {game.settings.get('autoanimations-modded', 'Autorec')} obj 
      * @returns 
      */
     static _getAllTheNames(obj) {
@@ -159,7 +159,7 @@ export class AutorecFunctions {
 
     /**
      * 
-     * @param {game.settings.get('autoanimations', 'aaAutorec')} settings 
+     * @param {game.settings.get('autoanimations-modded', 'aaAutorec')} settings 
      * @param {item Name with all spaces removed} name 
      * @returns Autorec Object containing all default settings
      */
@@ -221,7 +221,7 @@ export class AutorecFunctions {
     }
     /**
      * 
-     * @param {game.settings.get('autoanimations', 'aaAutorec')} data 
+     * @param {game.settings.get('autoanimations-modded', 'aaAutorec')} data 
      * @returns combined menus in a single array sorted by NAME field longest to shortest 
      */
     static _combineMenus(data) {
@@ -248,7 +248,7 @@ export class AutorecFunctions {
     }
 
     static _checkAutoRec(itemName) {
-        const autoRecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        const autoRecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
         const autoName = this._rinseName(itemName)
         const nameArray = this._getAllTheNames(autoRecSettings);
         let foundName = false;
@@ -258,7 +258,7 @@ export class AutorecFunctions {
         return foundName;
     }
     static _checkAutoRecAefx(itemName) {
-        const autoRecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        const autoRecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
         const autoName = this._rinseName(itemName)
         const nameArray = this._getAllTheNamesAefx(autoRecSettings.aefx);
         let foundName = false;
@@ -272,8 +272,8 @@ export class AutorecFunctions {
      * Exports Automatic Recognition Menu settings
      */
     static _exportAutorecToJSON() {
-        const data = (game.settings.get('autoanimations', 'aaAutorec'))
-        const filename = `fvtt-autoanimations-autorecognition.json`;
+        const data = (game.settings.get('autoanimations-modded', 'aaAutorec'))
+        const filename = `fvtt-autoanimations-modded-autorecognition.json`;
         saveDataToFile(JSON.stringify(data, null, 2), "text/json", filename);
     }
     /**
@@ -282,16 +282,16 @@ export class AutorecFunctions {
      */
     static async _importAutorecFromJSON(json) {
         const data = JSON.parse(json);
-        console.warn("autoanimations | Import settings ", data);
-        await game.settings.set("autoanimations", "aaAutorec", data);
-        await autoRecMigration.handle(game.settings.get('autoanimations', 'aaAutorec'))
+        console.warn("autoanimations-modded | Import settings ", data);
+        await game.settings.set("autoanimations-modded", "aaAutorec", data);
+        await autoRecMigration.handle(game.settings.get('autoanimations-modded', 'aaAutorec'))
     }
 
     static async _mergeAutorecFile(json) {
         // Imported Autorec Menu
         const newData = JSON.parse(json);
         // Existing Autorec Menu
-        const oldData = game.settings.get('autoanimations', 'aaAutorec');
+        const oldData = game.settings.get('autoanimations-modded', 'aaAutorec');
         // New Autorec Menu
         oldData.version = newData.version;
         oldData.search = "";
@@ -391,15 +391,15 @@ export class AutorecFunctions {
             }
         }
 
-        await game.settings.set("autoanimations", "aaAutorec", oldData);
-        await autoRecMigration.handle(game.settings.get('autoanimations', 'aaAutorec'))
+        await game.settings.set("autoanimations-modded", "aaAutorec", oldData);
+        await autoRecMigration.handle(game.settings.get('autoanimations-modded', 'aaAutorec'))
     }
 
     static _autoPreview(name, patreon, flags) {
 
         const data = {};
-        data.autoOverriden = flags.autoanimations?.options?.overrideAuto;
-        data.autoRecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        data.autoOverriden = flags.autoanimationsmodded?.options?.overrideAuto;
+        data.autoRecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
         data.autoName = this._rinseName(name);
         data.autorecSection = this._findObjectFromArray(data.autoRecSettings, data.autoName);
         if (!data.autorecSection) { return; }
@@ -407,8 +407,8 @@ export class AutorecFunctions {
         data.autorecObject = data.autorecSection;
         data.autorecType = data.autorecSection.menuSection;
         data.name = data.autorecObject?.animation;
-        data.color = data.autoOverriden ? flags.autoanimations?.options?.autoColor : data.autorecObject?.color;
-        data.variant = data.autoOverriden ? flags.autoanimations?.options?.autoVariant : data.autorecObject?.variant;
+        data.color = data.autoOverriden ? flags.autoanimationsmodded?.options?.autoColor : data.autorecObject?.color;
+        data.variant = data.autoOverriden ? flags.autoanimationsmodded?.options?.autoVariant : data.autorecObject?.variant;
         data.nameArray = this._getAllTheNames(data.autoRecSettings);
 
         if (data.autorecObject?.custom) {
@@ -446,7 +446,7 @@ export class AutorecFunctions {
 
         const data = {};
         data.autoOverriden = flags.autoanimations?.options?.overrideAuto;
-        data.autoRecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        data.autoRecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
         data.autoName = this._rinseName(name);
         data.autorecSection = this._findObjectFromAefx(data.autoRecSettings, data.autoName);
         if (!data.autorecSection) { return; }
@@ -491,7 +491,7 @@ export class AutorecFunctions {
 
     /*
     static _autorecChoices(itemName, flags) {
-        const autoRecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        const autoRecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
         const autoName = AutorecFunctions._rinseName(itemName)
         const nameArray = AutorecFunctions._getAllTheNames(autoRecSettings);
         if (!AutorecFunctions._autorecNameCheck(nameArray, autoName)) {
@@ -517,8 +517,8 @@ export class AutorecFunctions {
         }
 
         let autoVariant;
-        if (flags.autoanimations?.options?.overrideAuto) {
-            autoVariant = flags.autoanimations?.options?.autoVariant;
+        if (flags.autoanimationsmodded?.options?.overrideAuto) {
+            autoVariant = flags.autoanimationsmodded?.options?.autoVariant;
         }
         variant = !autoVariant ? variant : autoVariant;
 
@@ -537,7 +537,7 @@ export class AutorecFunctions {
 
 /*
 async function sortAutorec() {
-    const autoRec = await game.settings.get('autoanimations', 'aaAutorec');
+    const autoRec = await game.settings.get('autoanimations-modded', 'aaAutorec');
     const sortedMenu = {};
 
     sortedMenu.version = autoRec.version;

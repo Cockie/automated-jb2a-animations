@@ -11,7 +11,7 @@ export class aaAutoRecognition extends FormApplication {
 
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
-            template: './modules/autoanimations/src/custom-recognition/settings.html',
+            template: './modules/autoanimations-modded/src/custom-recognition/settings.html',
             id: 'automatic-recognition',
             title: "Automatic Recognition Settings",
             resizable: true,
@@ -24,7 +24,7 @@ export class aaAutoRecognition extends FormApplication {
 
     getSettingsData() {
         let settingsData = {
-            "aaAutorec": game.settings.get("autoanimations", "aaAutorec"),
+            "aaAutorec": game.settings.get("autoanimations-modded", "aaAutorec"),
         }
         return settingsData;
     }
@@ -296,7 +296,7 @@ export class aaAutoRecognition extends FormApplication {
 
     async _onRemoveOverride(event) {
         event.preventDefault();
-        const  data = await game.settings.get('autoanimations', 'aaAutorec');
+        const  data = await game.settings.get('autoanimations-modded', 'aaAutorec');
         let idx = event.target.dataset.idx;
         delete data[event.target.classList[3]][idx]
 
@@ -309,7 +309,7 @@ export class aaAutoRecognition extends FormApplication {
             data[menuType[i]] = compacted;
         }
 
-        await game.settings.set('autoanimations', "aaAutorec", data);
+        await game.settings.set('autoanimations-modded', "aaAutorec", data);
         this.render()
     }
 
@@ -320,7 +320,7 @@ export class aaAutoRecognition extends FormApplication {
         const entries = event.target.closest('div.tab').querySelectorAll('div.melee-settings');
         const last = entries[entries.length - 1];
         let idx = last.dataset.idx + 1;
-        let autorecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        let autorecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
         let newSet = autorecSettings.melee[currentIDX];
         newSet.name = newSet.name + " (COPY)";
         let updateData = {};
@@ -337,7 +337,7 @@ export class aaAutoRecognition extends FormApplication {
         const entries = event.target.closest('div.tab').querySelectorAll('div.range-settings');
         const last = entries[entries.length - 1];
         let idx = last.dataset.idx + 1;
-        let autorecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        let autorecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
         let newSet = autorecSettings.range[currentIDX];
         newSet.name = newSet.name + " (COPY)";
         let updateData = {};
@@ -354,7 +354,7 @@ export class aaAutoRecognition extends FormApplication {
         const entries = event.target.closest('div.tab').querySelectorAll('div.static-settings');
         const last = entries[entries.length - 1];
         let idx = last.dataset.idx + 1;
-        let autorecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        let autorecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
         let newSet = autorecSettings.static[currentIDX];
         newSet.name = newSet.name + " (COPY)";
         let updateData = {};
@@ -371,7 +371,7 @@ export class aaAutoRecognition extends FormApplication {
         const entries = event.target.closest('div.tab').querySelectorAll('div.templates-settings');
         const last = entries[entries.length - 1];
         let idx = last.dataset.idx + 1;
-        let autorecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        let autorecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
         let newSet = autorecSettings.templates[currentIDX];
         newSet.name = newSet.name + " (COPY)";
         let updateData = {};
@@ -388,7 +388,7 @@ export class aaAutoRecognition extends FormApplication {
         const entries = event.target.closest('div.tab').querySelectorAll('div.auras-settings');
         const last = entries[entries.length - 1];
         let idx = last.dataset.idx + 1;
-        let autorecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        let autorecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
         let newSet = autorecSettings.auras[currentIDX];
         newSet.name = newSet.name + " (COPY)";
         let updateData = {};
@@ -405,7 +405,7 @@ export class aaAutoRecognition extends FormApplication {
         const entries = event.target.closest('div.tab').querySelectorAll('div.preset-settings');
         const last = entries[entries.length - 1];
         let idx = last.dataset.idx + 1;
-        let autorecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        let autorecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
         let newSet = autorecSettings.preset[currentIDX];
         newSet.name = newSet.name + " (COPY)";
         let updateData = {};
@@ -422,7 +422,7 @@ export class aaAutoRecognition extends FormApplication {
         const entries = event.target.closest('div.tab').querySelectorAll('div.aefx-settings');
         const last = entries[entries.length - 1];
         let idx = last.dataset.idx + 1;
-        let autorecSettings = game.settings.get('autoanimations', 'aaAutorec');
+        let autorecSettings = game.settings.get('autoanimations-modded', 'aaAutorec');
         let newSet = autorecSettings.aefx[currentIDX];
         newSet.name = newSet.name + " (COPY)";
         let updateData = {};
@@ -445,14 +445,14 @@ export class aaAutoRecognition extends FormApplication {
                 Object.values(data[menuType[i]]).forEach((val, idx) => compacted[idx] = val);
                 data[menuType[i]] = compacted;
             }
-            const oldData = await game.settings.get('autoanimations', 'aaAutorec');
+            const oldData = await game.settings.get('autoanimations-modded', 'aaAutorec');
             const newData = mergeObject(oldData, data);
 
-            await game.settings.set('autoanimations', "aaAutorec", newData);
+            await game.settings.set('autoanimations-modded', "aaAutorec", newData);
     }
 
     async sortAutorec() {
-        const autoRec = await game.settings.get('autoanimations', 'aaAutorec');
+        const autoRec = await game.settings.get('autoanimations-modded', 'aaAutorec');
         const sortedMenu = {};
 
         sortedMenu.version = autoRec.version;
@@ -465,7 +465,7 @@ export class aaAutoRecognition extends FormApplication {
         sortedMenu.preset = autoRec.preset ? await this.sortMenu(autoRec.preset) : {};
         sortedMenu.aefx = autoRec.aefx ? await this.sortMenu(autoRec.aefx) : {};
     
-        await game.settings.set("autoanimations", "aaAutorec", sortedMenu);
+        await game.settings.set("autoanimations-modded", "aaAutorec", sortedMenu);
     }
     
     async sortMenu(data) {
@@ -493,7 +493,7 @@ export class aaAutoRecognition extends FormApplication {
 
 // Credit to Tim Poseny of Midi-QOL for the import/export functions for settings
 async function importFromJSONDialog() {
-	const content = await renderTemplate("modules/autoanimations/src/custom-recognition/import-data.html", { entity: "autoanimations", name: "aaAutorec" });
+	const content = await renderTemplate("modules/autoanimations-modded/src/custom-recognition/import-data.html", { entity: "autoanimations-modded", name: "aaAutorec" });
 	let dialog = new Promise((resolve, reject) => {
 		new Dialog({
 			title: game.i18n.format("AUTOANIM.menuImport"),
@@ -542,7 +542,7 @@ async function importFromJSONDialog() {
 }
 /*
 async function importJSONAndMerge() {
-    const content = await renderTemplate("templates/apps/import-data.html", { entity: "autoanimations", name: "aaAutorec" });
+    const content = await renderTemplate("templates/apps/import-data.html", { entity: "autoanimations-modded", name: "aaAutorec" });
     let dialog = new Promise((resolve, reject) => {
         new Dialog({
             title: game.i18n.format("AUTOANIM.mergeMenu"),

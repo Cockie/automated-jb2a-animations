@@ -17,7 +17,7 @@ export async function meleeAnimation(handler, animationData) {
         rangeSwitch = ['dagger', 'lasersword']
     }
     // Sets JB2A database and Global Delay
-    let globalDelay = game.settings.get("autoanimations", "globaldelay");
+    let globalDelay = game.settings.get("autoanimations-modded", "globaldelay");
     await wait(globalDelay);
 
     const data = animationData.primary;
@@ -48,7 +48,7 @@ export async function meleeAnimation(handler, animationData) {
     
     async function cast() {
 
-        const rangeSwitchActive = game.settings.get("autoanimations", "rangeSwitch")
+        const rangeSwitchActive = game.settings.get("autoanimations-modded", "rangeSwitch")
 
         let aaSeq = await new Sequence("Automated Animations");
         // Play Macro if Awaiting

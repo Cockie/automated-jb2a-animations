@@ -3,8 +3,8 @@
     <div class="aa-options-even aa-options-settings">
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.variant"}}</label>
-            <select name="flags.autoanimations.autoOverride.variant">
-                {{#select flags.autoanimations.autoOverride.variant}}
+            <select name="flags.autoanimationsmodded.autoOverride.variant">
+                {{#select flags.autoanimationsmodded.autoOverride.variant}}
                 {{#each (lookup (lookup menuVariants.melee autoObject.menuType) autoObject.animation) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
@@ -14,10 +14,10 @@
         <!--Choose Standard Animation Color-->
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.autoOverride.color">
-                {{#select flags.autoanimations.autoOverride.color}}
+            <select name="flags.autoanimationsmodded.autoOverride.color">
+                {{#select flags.autoanimationsmodded.autoOverride.color}}
                 {{#each (lookup (lookup (lookup menuColors.melee autoObject.menuType) autoObject.animation)
-                flags.autoanimations.autoOverride.variant)
+                flags.autoanimationsmodded.autoOverride.variant)
                 as
                 |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -33,18 +33,18 @@
     <div class="aa-options-odd aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.repeat"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.repeat"
-                value="{{flags.autoanimations.autoOverride.repeat}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.repeat"
+                value="{{flags.autoanimationsmodded.autoOverride.repeat}}" data-dtype="Number" placeholder=1>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize 'AUTOANIM.repeat'}} {{localize 'AUTOANIM.delay'}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.delay"
-                value="{{flags.autoanimations.autoOverride.delay}}" data-dtype="Number" placeholder=250>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.delay"
+                value="{{flags.autoanimationsmodded.autoOverride.delay}}" data-dtype="Number" placeholder=250>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 5 / 6;'>
             <label>{{localize "AUTOANIM.scale"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.scale"
-                value="{{flags.autoanimations.autoOverride.scale}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.scale"
+                value="{{flags.autoanimationsmodded.autoOverride.scale}}" data-dtype="Number" placeholder=1>
         </div>
     </div>
 </div>
@@ -55,8 +55,8 @@
     <div class="aa-options-even aa-options-settings">
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.variant"}}</label>
-            <select name="flags.autoanimations.autoOverride.variant">
-                {{#select flags.autoanimations.autoOverride.variant}}
+            <select name="flags.autoanimationsmodded.autoOverride.variant">
+                {{#select flags.autoanimationsmodded.autoOverride.variant}}
                 <option value=""> </option>
                 {{#each (lookup (lookup menuVariants.range autoObject.menuType) autoObject.animation) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -67,11 +67,11 @@
         <!--Choose Standard Animation Color-->
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.autoOverride.color">
-                {{#select flags.autoanimations.autoOverride.color}}
+            <select name="flags.autoanimationsmodded.autoOverride.color">
+                {{#select flags.autoanimationsmodded.autoOverride.color}}
                 <option value=""> </option>
                 {{#each (lookup (lookup (lookup menuColors.range autoObject.menuType) autoObject.animation)
-                flags.autoanimations.autoOverride.variant) as
+                flags.autoanimationsmodded.autoOverride.variant) as
                 |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
@@ -86,13 +86,13 @@
     <div class="aa-options-even aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.repeat"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.repeat"
-                value="{{flags.autoanimations.autoOverride.repeat}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.repeat"
+                value="{{flags.autoanimationsmodded.autoOverride.repeat}}" data-dtype="Number" placeholder=1>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.delayMS"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.delay"
-                value="{{flags.autoanimations.autoOverride.delay}}" data-dtype="Number" placeholder=250>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.delay"
+                value="{{flags.autoanimationsmodded.autoOverride.delay}}" data-dtype="Number" placeholder=250>
         </div>
     </div>
 </div>
@@ -103,8 +103,8 @@
     <div class="aa-options-odd aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label></label>{{localize 'AUTOANIM.playOn'}}</label>
-            <select name="flags.autoanimations.autoOverride.staticType">
-                {{#select flags.autoanimations.autoOverride.staticType}}
+            <select name="flags.autoanimationsmodded.autoOverride.staticType">
+                {{#select flags.autoanimationsmodded.autoOverride.staticType}}
                 <option value="source">{{localize "AUTOANIM.source"}}</option>
                 <option value="target">{{localize "AUTOANIM.target"}}</option>
                 <option value="targetDefault">{{localize "AUTOANIM.targetDefault"}}</option>
@@ -116,8 +116,8 @@
     <div class="aa-options-even aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.variant"}}</label>
-            <select name="flags.autoanimations.autoOverride.variant">
-                {{#select flags.autoanimations.autoOverride.variant}}
+            <select name="flags.autoanimationsmodded.autoOverride.variant">
+                {{#select flags.autoanimationsmodded.autoOverride.variant}}
                 <option value=""> </option>
                 {{#each (lookup (lookup menuVariants.static autoObject.menuType) autoObject.animation) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -128,11 +128,11 @@
         <!--Choose Standard Animation Color-->
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.autoOverride.color">
-                {{#select flags.autoanimations.autoOverride.color}}
+            <select name="flags.autoanimationsmodded.autoOverride.color">
+                {{#select flags.autoanimationsmodded.autoOverride.color}}
                 <option value=""> </option>
                 {{#each (lookup (lookup (lookup menuColors.static autoObject.menuType) autoObject.animation)
-                flags.autoanimations.autoOverride.variant) as
+                flags.autoanimationsmodded.autoOverride.variant) as
                 |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
@@ -147,18 +147,18 @@
     <div class="aa-options-odd aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.repeat"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.repeat"
-                value="{{flags.autoanimations.autoOverride.repeat}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.repeat"
+                value="{{flags.autoanimationsmodded.autoOverride.repeat}}" data-dtype="Number" placeholder=1>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.delayMS"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.delay"
-                value="{{flags.autoanimations.autoOverride.delay}}" data-dtype="Number" placeholder=250>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.delay"
+                value="{{flags.autoanimationsmodded.autoOverride.delay}}" data-dtype="Number" placeholder=250>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 5 / 6;'>
             <label>{{localize "AUTOANIM.scale"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.scale"
-                value="{{flags.autoanimations.autoOverride.scale}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.scale"
+                value="{{flags.autoanimationsmodded.autoOverride.scale}}" data-dtype="Number" placeholder=1>
         </div>
     </div>
 </div>
@@ -170,8 +170,8 @@
         <!--Choose Standard Animation Color-->
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.variant"}}</label>
-            <select name="flags.autoanimations.autoOverride.variant">
-                {{#select flags.autoanimations.autoOverride.variant}}
+            <select name="flags.autoanimationsmodded.autoOverride.variant">
+                {{#select flags.autoanimationsmodded.autoOverride.variant}}
                 <option value=""> </option>
                 {{#each (lookup (lookup menuVariants.templatefx autoObject.menuType) autoObject.animation) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -181,11 +181,11 @@
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.autoOverride.color">
-                {{#select flags.autoanimations.autoOverride.color}}
+            <select name="flags.autoanimationsmodded.autoOverride.color">
+                {{#select flags.autoanimationsmodded.autoOverride.color}}
                 <option value=""> </option>
                 {{#each (lookup (lookup (lookup menuColors.templatefx autoObject.menuType) autoObject.animation)
-                flags.autoanimations.autoOverride.variant) as
+                flags.autoanimationsmodded.autoOverride.variant) as
                 |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
@@ -200,23 +200,23 @@
     <div class="aa-options-even aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.repeat"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.repeat"
-                value="{{flags.autoanimations.autoOverride.repeat}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.repeat"
+                value="{{flags.autoanimationsmodded.autoOverride.repeat}}" data-dtype="Number" placeholder=1>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.delayMS"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.delay"
-                value="{{flags.autoanimations.autoOverride.delay}}" data-dtype="Number" placeholder=250>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.delay"
+                value="{{flags.autoanimationsmodded.autoOverride.delay}}" data-dtype="Number" placeholder=250>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.scale"}} X</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.scaleX"
-                value="{{flags.autoanimations.autoOverride.scaleX}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.scaleX"
+                value="{{flags.autoanimationsmodded.autoOverride.scaleX}}" data-dtype="Number" placeholder=1>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 4 / 5;'>
             <label>{{localize "AUTOANIM.scale"}} Y</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.scaleY"
-                value="{{flags.autoanimations.autoOverride.scaleY}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.scaleY"
+                value="{{flags.autoanimationsmodded.autoOverride.scaleY}}" data-dtype="Number" placeholder=1>
         </div>
     </div>
 </div>
@@ -227,8 +227,8 @@
     <div class="aa-options-even aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.variant"}}</label>
-            <select name="flags.autoanimations.autoOverride.variant">
-                {{#select flags.autoanimations.autoOverride.variant}}
+            <select name="flags.autoanimationsmodded.autoOverride.variant">
+                {{#select flags.autoanimationsmodded.autoOverride.variant}}
                 <option value=""> </option>
                 {{#each (lookup (lookup menuVariants.static autoObject.menuType) autoObject.animation) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -239,11 +239,11 @@
         <!--Choose Standard Animation Color-->
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.autoOverride.color">
-                {{#select flags.autoanimations.autoOverride.color}}
+            <select name="flags.autoanimationsmodded.autoOverride.color">
+                {{#select flags.autoanimationsmodded.autoOverride.color}}
                 <option value=""> </option>
                 {{#each (lookup (lookup (lookup menuColors.static autoObject.menuType) autoObject.animation)
-                flags.autoanimations.autoOverride.variant) as
+                flags.autoanimationsmodded.autoOverride.variant) as
                 |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
@@ -258,18 +258,18 @@
     <div class="aa-options-odd aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.opacity"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.opacity"
-                value="{{flags.autoanimations.autoOverride.opacity}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.opacity"
+                value="{{flags.autoanimationsmodded.autoOverride.opacity}}" data-dtype="Number" placeholder=1>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.radius"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.radius"
-                value="{{flags.autoanimations.autoOverride.radius}}" data-dtype="Number" placeholder=3.5>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.radius"
+                value="{{flags.autoanimationsmodded.autoOverride.radius}}" data-dtype="Number" placeholder=3.5>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 5 / 6;'>
             <label>{{localize 'AUTOANIM.ignoreTargets'}}: </label>
-            <input type='checkbox' name='flags.autoanimations.autoOverride.ignoreTargets' {{checked
-                flags.autoanimations.autoOverride.ignoreTargets}}>
+            <input type='checkbox' name='flags.autoanimationsmodded.autoOverride.ignoreTargets' {{checked
+                flags.autoanimationsmodded.autoOverride.ignoreTargets}}>
         </div>
     </div>
 </div>
@@ -286,8 +286,8 @@
     <div class="aa-primary-container">
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 2 / 3;'>
             <label>{{localize 'AUTOANIM.animation'}}</label>
-            <select name="flags.autoanimations.autoOverride.fireball.rangeType">
-                {{#select flags.autoanimations.autoOverride.fireball.rangeType}}
+            <select name="flags.autoanimationsmodded.autoOverride.fireball.rangeType">
+                {{#select flags.autoanimationsmodded.autoOverride.fireball.rangeType}}
                 <option value=""> </option>
                 {{#each menuTypes.range as |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -297,10 +297,10 @@
         </div>
         <div class='flexcol' style='grid-row: 2 / 3;grid-column: 1 / 2;'>
             <label>{{localize 'AUTOANIM.animation'}}</label>
-            <select name="flags.autoanimations.autoOverride.fireball.projectile">
-                {{#select flags.autoanimations.autoOverride.fireball.projectile}}
+            <select name="flags.autoanimationsmodded.autoOverride.fireball.projectile">
+                {{#select flags.autoanimationsmodded.autoOverride.fireball.projectile}}
                 <option value=""> </option>
-                {{#each (lookup menuNames.range flags.autoanimations.autoOverride.fireball.rangeType) as |name key|}}
+                {{#each (lookup menuNames.range flags.autoanimationsmodded.autoOverride.fireball.rangeType) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
                 {{/select}}
@@ -308,10 +308,10 @@
         </div>
         <div class='flexcol' style='grid-row: 2 / 3;grid-column: 2 / 3;'>
             <label>{{localize 'AUTOANIM.variant'}}</label>
-            <select name="flags.autoanimations.autoOverride.fireball.projectileVariant">
-                {{#select flags.autoanimations.autoOverride.fireball.projectileVariant}}
+            <select name="flags.autoanimationsmodded.autoOverride.fireball.projectileVariant">
+                {{#select flags.autoanimationsmodded.autoOverride.fireball.projectileVariant}}
                 <option value=""> </option>
-                {{#each (lookup (lookup menuVariants.range flags.autoanimations.autoOverride.fireball.rangeType) flags.autoanimations.autoOverride.fireball.projectile) as |name key|}}
+                {{#each (lookup (lookup menuVariants.range flags.autoanimationsmodded.autoOverride.fireball.rangeType) flags.autoanimationsmodded.autoOverride.fireball.projectile) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
                 {{/select}}
@@ -319,10 +319,10 @@
         </div>
         <div class='flexcol' style='grid-row: 2 / 3;grid-column: 3 / 4;'>
             <label>{{localize 'AUTOANIM.color'}}</label>
-            <select name="flags.autoanimations.autoOverride.fireball.projectileColor">
-                {{#select flags.autoanimations.autoOverride.fireball.projectileColor}}
+            <select name="flags.autoanimationsmodded.autoOverride.fireball.projectileColor">
+                {{#select flags.autoanimationsmodded.autoOverride.fireball.projectileColor}}
                 <option value=""> </option>
-                {{#each (lookup (lookup (lookup menuColors.range flags.autoanimations.autoOverride.fireball.rangeType) flags.autoanimations.autoOverride.fireball.projectile) flags.autoanimations.autoOverride.fireball.projectileVariant) as |name key|}}
+                {{#each (lookup (lookup (lookup menuColors.range flags.autoanimationsmodded.autoOverride.fireball.rangeType) flags.autoanimationsmodded.autoOverride.fireball.projectile) flags.autoanimationsmodded.autoOverride.fireball.projectileVariant) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
                 {{/select}}
@@ -336,8 +336,8 @@
     <div class="aa-options-odd aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize 'AUTOANIM.wait'}}</label>
-            <input type="Number" style='width:5em' name="flags.autoanimations.autoOverride.fireball.wait01"
-                value="{{flags.autoanimations.autoOverride.fireball.wait01}}" data-dtype="Number" placeholder=0>
+            <input type="Number" style='width:5em' name="flags.autoanimationsmodded.autoOverride.fireball.wait01"
+                value="{{flags.autoanimationsmodded.autoOverride.fireball.wait01}}" data-dtype="Number" placeholder=0>
         </div>
     </div>
 </div>
@@ -349,8 +349,8 @@
     <div class="aa-options-odd aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize 'AUTOANIM.color'}}</label>
-            <select name="flags.autoanimations.autoOverride.fireball.explosion01Color">
-                {{#select flags.autoanimations.autoOverride.fireball.explosion01Color}}
+            <select name="flags.autoanimationsmodded.autoOverride.fireball.explosion01Color">
+                {{#select flags.autoanimationsmodded.autoOverride.fireball.explosion01Color}}
                 <option value=""> </option>
                 {{#each (lookup (lookup (lookup menuColors.static autoObject.ex01Type) autoObject.explosion01) autoObject.explosion01Variant) as
                 |name key|}}
@@ -369,8 +369,8 @@
     <div class="aa-options-odd aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize 'AUTOANIM.color'}}</label>
-            <select name="flags.autoanimations.autoOverride.fireball.explosion02Color">
-                {{#select flags.autoanimations.autoOverride.fireball.explosion02Color}}
+            <select name="flags.autoanimationsmodded.autoOverride.fireball.explosion02Color">
+                {{#select flags.autoanimationsmodded.autoOverride.fireball.explosion02Color}}
                 <option value=""> </option>
                 {{#each (lookup (lookup (lookup menuColors.static autoObject.ex02Type) autoObject.explosion02) autoObject.explosion02Variant) as
                     |name key|}}
@@ -384,27 +384,27 @@
 <div class='aa-checkbox-label' style="text-align: center;">
     <div class='form-group' style='grid-row: 1 / 2; grid-column: 2 / 3;'>
         <label style="font-size: large;">{{localize 'AUTOANIM.addAfterImage'}}</label>
-        <input type="checkbox" name="flags.autoanimations.autoOverride.fireball.afterEffect" data-dtype="{{Boolean}}"
-            {{checked flags.autoanimations.autoOverride.fireball.afterEffect}}>
+        <input type="checkbox" name="flags.autoanimationsmodded.autoOverride.fireball.afterEffect" data-dtype="{{Boolean}}"
+            {{checked flags.autoanimationsmodded.autoOverride.fireball.afterEffect}}>
     </div>
 </div>
-{{#if flags.autoanimations.autoOverride.fireball.afterEffect}}
+{{#if flags.autoanimationsmodded.autoOverride.fireball.afterEffect}}
 <div class="aa-itemSection-divider">
     <div class="aa-sound-container">
         <div class='form-group' style='grid-row: 1 / 2;grid-column: 1 / 5;'>
             <input style="width:15em" type="text" class="files"
-                name="flags.autoanimations.autoOverride.fireball.afterEffectPath"
-                value="{{flags.autoanimations.autoOverride.fireball.afterEffectPath}}">
+                name="flags.autoanimationsmodded.autoOverride.fireball.afterEffectPath"
+                value="{{flags.autoanimationsmodded.autoOverride.fireball.afterEffectPath}}">
             <button type="button" class="file-picker" data-type="image/video"
-                data-target="flags.autoanimations.autoOverride.fireball.afterEffectPath" tabindex="-1"
+                data-target="flags.autoanimationsmodded.autoOverride.fireball.afterEffectPath" tabindex="-1"
                 title="Browse Files">
                 <i class="fas fa-file-video"></i>
             </button>
         </div>
         <div class="flexcol" style='grid-row: 2 / 3;grid-column: 4 / 5;'>
             <label>{{localize "AUTOANIM.wait"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.fireball.wait03"
-                value="{{flags.autoanimations.autoOverride.fireball.wait03}}" data-dtype="Number" placeholder=0>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.fireball.wait03"
+                value="{{flags.autoanimationsmodded.autoOverride.fireball.wait03}}" data-dtype="Number" placeholder=0>
         </div>
     </div>
 </div>
@@ -416,8 +416,8 @@
     <div class="aa-primary-container">
         <div class="flexcol" style='grid-row: 2 / 3;grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.autoOverride.color">
-                {{#select flags.autoanimations.autoOverride.color}}
+            <select name="flags.autoanimationsmodded.autoOverride.color">
+                {{#select flags.autoanimationsmodded.autoOverride.color}}
                 {{#each (lookup menuColors.static.spell.bless '01') as |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
@@ -432,13 +432,13 @@
     <div class="aa-options-even aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.scale"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.scale"
-                value="{{flags.autoanimations.autoOverride.scale}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.scale"
+                value="{{flags.autoanimationsmodded.autoOverride.scale}}" data-dtype="Number" placeholder=1>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize 'AUTOANIM.persistant'}}: </label>
-            <input type='checkbox' name='flags.autoanimations.autoOverride.persistent' {{checked
-                flags.autoanimations.autoOverride.persistent}}>
+            <input type='checkbox' name='flags.autoanimationsmodded.autoOverride.persistent' {{checked
+                flags.autoanimationsmodded.autoOverride.persistent}}>
         </div>
     </div>
 </div>
@@ -455,8 +455,8 @@
     <div class="aa-primary-container">
         <div class='flexcol' style='grid-row: 2 / 3;grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.variant"}}</label>
-            <select name="flags.autoanimations.autoOverride.variant">
-                {{#select flags.autoanimations.autoOverride.variant}}
+            <select name="flags.autoanimationsmodded.autoOverride.variant">
+                {{#select flags.autoanimationsmodded.autoOverride.variant}}
                 <option value=""> </option>
                 {{#each menuVariants.static.spell.shieldspell as |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -467,10 +467,10 @@
         <!--Choose Standard Animation Color-->
         <div class='flexcol' style='grid-row: 2 / 3;grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.autoOverride.color">
-                {{#select flags.autoanimations.autoOverride.color}}
+            <select name="flags.autoanimationsmodded.autoOverride.color">
+                {{#select flags.autoanimationsmodded.autoOverride.color}}
                 <option value=""> </option>
-                {{#each (lookup menuColors.static.spell.shieldspell flags.autoanimations.autoOverride.variant) as |name key|}}
+                {{#each (lookup menuColors.static.spell.shieldspell flags.autoanimationsmodded.autoOverride.variant) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
                 {{/select}}
@@ -478,8 +478,8 @@
         </div>
         <div class='flexcol' style='grid-row: 2 / 3;grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.endEffect"}}</label>
-            <select name="flags.autoanimations.autoOverride.endEffect">
-                {{#select flags.autoanimations.autoOverride.endEffect}}
+            <select name="flags.autoanimationsmodded.autoOverride.endEffect">
+                {{#select flags.autoanimationsmodded.autoOverride.endEffect}}
                 <option value="outro_explode">{{localize "AUTOANIM.explode"}}</option>
                 <option value="outro_fade">{{localize "AUTOANIM.fade"}}</option>
                 {{/select}}
@@ -493,13 +493,13 @@
     <div class="aa-options-even aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.scale"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.scale"
-                value="{{flags.autoanimations.autoOverride.scale}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.scale"
+                value="{{flags.autoanimationsmodded.autoOverride.scale}}" data-dtype="Number" placeholder=1>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize 'AUTOANIM.persistant'}}: </label>
-            <input type='checkbox' name='flags.autoanimations.autoOverride.persistent' {{checked
-                flags.autoanimations.autoOverride.persistent}}>
+            <input type='checkbox' name='flags.autoanimationsmodded.autoOverride.persistent' {{checked
+                flags.autoanimationsmodded.autoOverride.persistent}}>
         </div>
     </div>
 </div>
@@ -510,8 +510,8 @@
     <div class="aa-options-even aa-options-settings">
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.variant"}}</label>
-            <select name="flags.autoanimations.autoOverride.variant">
-                {{#select flags.autoanimations.autoOverride.variant}}
+            <select name="flags.autoanimationsmodded.autoOverride.variant">
+                {{#select flags.autoanimationsmodded.autoOverride.variant}}
                 <option value=""> </option>
                 <option value="eye">{{localize "AUTOANIM.eye"}}</option>
                 <option value="paw">{{localize "AUTOANIM.paw"}}</option>
@@ -521,10 +521,10 @@
         <!--Choose Standard Animation Color-->
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.autoOverride.color">
-                {{#select flags.autoanimations.autoOverride.color}}
+            <select name="flags.autoanimationsmodded.autoOverride.color">
+                {{#select flags.autoanimationsmodded.autoOverride.color}}
                 <option value=""> </option>
-                {{#each (lookup menuColors.static.spell.huntersmark flags.autoanimations.autoOverride.variant) as |name key|}}
+                {{#each (lookup menuColors.static.spell.huntersmark flags.autoanimationsmodded.autoOverride.variant) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
                 {{/select}}
@@ -538,27 +538,27 @@
     <div class="aa-options-even aa-options-settings">
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.scale"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.scale"
-                value="{{flags.autoanimations.autoOverride.scale}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.scale"
+                value="{{flags.autoanimationsmodded.autoOverride.scale}}" data-dtype="Number" placeholder=1>
         </div>
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 2 / 3;'>
             <div class='form-group'>
                 <label>{{localize 'AUTOANIM.persistant'}}: </label>
-                <input type='checkbox' name='flags.autoanimations.autoOverride.persistent' {{checked
-                    flags.autoanimations.autoOverride.persistent}}>
+                <input type='checkbox' name='flags.autoanimationsmodded.autoOverride.persistent' {{checked
+                    flags.autoanimationsmodded.autoOverride.persistent}}>
             </div>
         </div>
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.anchorX"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.anchorX"
-                value="{{flags.autoanimations.autoOverride.anchorX}}" data-dtype="Number" placeholder=0.5 {{#if
-                flags.autoanimations.autoOverride.persistent}} disabled {{/if }}>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.anchorX"
+                value="{{flags.autoanimationsmodded.autoOverride.anchorX}}" data-dtype="Number" placeholder=0.5 {{#if
+                flags.autoanimationsmodded.autoOverride.persistent}} disabled {{/if }}>
         </div>
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 4 / 5;'>
             <label>{{localize "AUTOANIM.anchorY"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.anchorY"
-                value="{{flags.autoanimations.autoOverride.anchorY}}" data-dtype="Number" placeholder=0.5 {{#if
-                flags.autoanimations.autoOverride.persistent}} disabled {{/if }}>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.anchorY"
+                value="{{flags.autoanimationsmodded.autoOverride.anchorY}}" data-dtype="Number" placeholder=0.5 {{#if
+                flags.autoanimationsmodded.autoOverride.persistent}} disabled {{/if }}>
         </div>
     </div>
 </div>
@@ -569,8 +569,8 @@
     <div class="aa-options-even aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.variant"}}</label>
-            <select name="flags.autoanimations.autoOverride.variant">
-                {{#select flags.autoanimations.autoOverride.variant}}
+            <select name="flags.autoanimationsmodded.autoOverride.variant">
+                {{#select flags.autoanimationsmodded.autoOverride.variant}}
                 <option value=""> </option>
                 {{#each menuVariants.static.spell.sneakattack as |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -581,10 +581,10 @@
         <!--Choose Standard Animation Color-->
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.autoOverride.color">
-                {{#select flags.autoanimations.autoOverride.color}}
+            <select name="flags.autoanimationsmodded.autoOverride.color">
+                {{#select flags.autoanimationsmodded.autoOverride.color}}
                 <option value=""> </option>
-                {{#each (lookup menuColors.static.spell.sneakattack flags.autoanimations.autoOverride.variant) as |name key|}}
+                {{#each (lookup menuColors.static.spell.sneakattack flags.autoanimationsmodded.autoOverride.variant) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
                 {{/select}}
@@ -598,18 +598,18 @@
     <div class="aa-options-odd aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.anchorX"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.anchorX"
-                value="{{flags.autoanimations.autoOverride.anchorX}}" data-dtype="Number" placeholder=0.5>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.anchorX"
+                value="{{flags.autoanimationsmodded.autoOverride.anchorX}}" data-dtype="Number" placeholder=0.5>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.anchorY"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.anchorY"
-                value="{{flags.autoanimations.autoOverride.anchorY}}" data-dtype="Number" placeholder=0.5>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.anchorY"
+                value="{{flags.autoanimationsmodded.autoOverride.anchorY}}" data-dtype="Number" placeholder=0.5>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 5 / 6;'>
             <label>{{localize "AUTOANIM.scale"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.scale"
-                value="{{flags.autoanimations.autoOverride.scale}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.scale"
+                value="{{flags.autoanimationsmodded.autoOverride.scale}}" data-dtype="Number" placeholder=1>
         </div>
     </div>
 </div>
@@ -620,8 +620,8 @@
     <div class="aa-options-odd aa-options-settings">
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.ranged"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.range"
-                value="{{flags.autoanimations.autoOverride.range}}" data-dtype="Number" placeholder=30>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.range"
+                value="{{flags.autoanimationsmodded.autoOverride.range}}" data-dtype="Number" placeholder=30>
         </div>
     </div>
 </div>
@@ -647,8 +647,8 @@
     <div class="aa-options-even aa-options-settings">
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.variant"}}</label>
-            <select name="flags.autoanimations.autoOverride.variant">
-                {{#select flags.autoanimations.autoOverride.variant}}
+            <select name="flags.autoanimationsmodded.autoOverride.variant">
+                {{#select flags.autoanimationsmodded.autoOverride.variant}}
                 <option value=""> </option>
                 {{#each (lookup (lookup menuVariants.static autoObject.menuType) autoObject.subAnimation) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -659,8 +659,8 @@
         <!--Choose Standard Animation Color-->
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.autoOverride.color">
-                {{#select flags.autoanimations.autoOverride.color}}
+            <select name="flags.autoanimationsmodded.autoOverride.color">
+                {{#select flags.autoanimationsmodded.autoOverride.color}}
                 <option value=""> </option>
                 {{#each (lookup (lookup (lookup menuColors.static autoObject.menuType) autoObject.subAnimation) autoObject.variant) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -676,8 +676,8 @@
     <div class="aa-options-odd aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.scale"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.scale"
-                value={{flags.autoanimations.autoOverride.scale}} data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.scale"
+                value={{flags.autoanimationsmodded.autoOverride.scale}} data-dtype="Number" placeholder=1>
         </div>
     </div>
 </div>
@@ -704,8 +704,8 @@
     <div class="aa-options-even aa-options-settings">
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.variant"}}</label>
-            <select name="flags.autoanimations.autoOverride.variant02">
-                {{#select flags.autoanimations.autoOverride.variant02}}
+            <select name="flags.autoanimationsmodded.autoOverride.variant02">
+                {{#select flags.autoanimationsmodded.autoOverride.variant02}}
                 <option value=""> </option>
                 {{#each (lookup (lookup menuVariants.static autoObject.menuType02) autoObject.subAnimation02) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -716,8 +716,8 @@
         <!--Choose Standard Animation Color-->
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.autoOverride.color02">
-                {{#select flags.autoanimations.autoOverride.color02}}
+            <select name="flags.autoanimationsmodded.autoOverride.color02">
+                {{#select flags.autoanimationsmodded.autoOverride.color02}}
                 <option value=""> </option>
                 {{#each (lookup (lookup (lookup menuColors.static autoObject.menuType02) autoObject.subAnimation02) autoObject.variant02) as |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -733,8 +733,8 @@
     <div class="aa-options-odd aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.scale"}}</label>
-            <input type="Number" name="flags.autoanimations.autoOverride.scale02"
-                value="{{flags.autoanimations.autoOverride.scale02}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.autoOverride.scale02"
+                value="{{flags.autoanimationsmodded.autoOverride.scale02}}" data-dtype="Number" placeholder=1>
         </div>
     </div>
 </div>

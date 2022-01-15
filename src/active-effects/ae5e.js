@@ -19,7 +19,7 @@ export async function createActiveEffects5e(effect) {
     if (effect.data?.disabled) { return; }
     //const wait = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
     //await wait(150)
-    const aaDebug = game.settings.get("autoanimations", "debug")
+    const aaDebug = game.settings.get("autoanimations-modded", "debug")
 
     if (killAllAnimations) { return; }
 
@@ -80,7 +80,7 @@ export async function createActiveEffects5e(effect) {
  */
 export async function deleteActiveEffects5e(effect) {
     const aeToken = canvas.tokens.placeables.find(token => token.actor?.effects?.get(effect.id))
-    const aaDebug = game.settings.get("autoanimations", "debug")
+    const aaDebug = game.settings.get("autoanimations-modded", "debug")
 
     // Finds all active Animations on the scene that match .origin(effect.uuid)
     let aaEffects = Sequencer.EffectManager.getEffects({ origin: effect.uuid })
@@ -186,7 +186,7 @@ export async function toggleActiveEffects5e(effect, toggle) {
 }
 
 export async function checkConcentration(effect) {
-    const aaDebug = game.settings.get("autoanimations", "debug")
+    const aaDebug = game.settings.get("autoanimations-modded", "debug")
 
     // Check effect label and return if it is not equal to "concentrating"
     const label = effect.data?.label || "";

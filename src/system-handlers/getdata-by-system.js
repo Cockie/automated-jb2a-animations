@@ -34,7 +34,7 @@ export class AASystemData {
             if (!item || !token) return {};
 
             //const token = this.getToken(input)
-            const ammo = input.item?.data?.flags?.autoanimations?.options?.ammo;
+            const ammo = input.item?.data?.flags?.autoanimationsmodded?.options?.ammo;
             const ammoType = input.item?.data?.data?.consume?.type;
             item = ammo && ammoType === "ammo" ? token.actor.items?.get(input.item.data.data.consume.target) : item;
             if (!item || !token) { return {}; }
@@ -43,10 +43,10 @@ export class AASystemData {
             targets = input.item?.data?.data?.target?.type === 'self' ? [token] : targets;
             if (game.modules.get('midi-qol')?.active) {
                 switch (true) {
-                    case (game.settings.get("autoanimations", "playonmiss")):
+                    case (game.settings.get("autoanimations-modded", "playonmiss")):
                         targets = targets;
                         break;
-                    case (game.settings.get("autoanimations", "playonhit")):
+                    case (game.settings.get("autoanimations-modded", "playonhit")):
                         targets = hitTargets;
                         break;
                     default:
@@ -77,7 +77,7 @@ export class AASystemData {
             let {item, itemId, token, targets} = await this.getRequiredData(input)
             if (!item || !token) return {};
 
-            if (item.data?.flags?.autoanimations?.options?.ammo && item.data?.data?.consume?.type === "ammo") {
+            if (item.data?.flags?.autoanimationsmodded?.options?.ammo && item.data?.data?.consume?.type === "ammo") {
                 itemId = item.data.data.consume.target;
                 item = token.actor.items?.get(itemId) ?? "";
             }
@@ -136,7 +136,7 @@ export class AASystemData {
             let {item, token, targets} = await this.getRequiredData(input)
             if (!item || !token) return {};
 
-            const ammo = input.item?.data?.flags?.autoanimations?.options?.ammo;
+            const ammo = input.item?.data?.flags?.autoanimationsmodded?.options?.ammo;
             const ammoType = input.item?.data?.data?.consume?.type;
             item = ammo && ammoType === "ammo" ? token.actor.items?.get(input.item.data.data.consume.target) : item;
             if (!item || !token) { return {}; }
@@ -145,10 +145,10 @@ export class AASystemData {
             //let targets = Array.from(input.targets);
             if (game.modules.get('midi-qol')?.active) {
                 switch (true) {
-                    case (game.settings.get("autoanimations", "playonmiss")):
+                    case (game.settings.get("autoanimations-modded", "playonmiss")):
                         targets = targets;
                         break;
-                    case (game.settings.get("autoanimations", "playonhit")):
+                    case (game.settings.get("autoanimations-modded", "playonhit")):
                         targets = hitTargets;
                         break;
                     default:
@@ -178,7 +178,7 @@ export class AASystemData {
             let {item, itemId, token, targets} = await this.getRequiredData(input)
             if (!item || !token) return {};
 
-            if (item.data?.flags?.autoanimations?.options?.ammo && item.data?.data?.consume?.type === "ammo") {
+            if (item.data?.flags?.autoanimationsmodded?.options?.ammo && item.data?.data?.consume?.type === "ammo") {
                 itemId = item.data.data.consume.target;
                 item = token.actor.items?.get(itemId) ?? "";
             }
@@ -226,7 +226,7 @@ export class AASystemData {
         let outcome = input.data?.flags?.pf2e?.context?.outcome;
         outcome = outcome ? outcome.toLowerCase() : "";
         let hitTargets;
-        if (targets.length < 2 && !game.settings.get('autoanimations', 'playonDamageCore') && outcome) {
+        if (targets.length < 2 && !game.settings.get('autoanimations-modded', 'playonDamageCore') && outcome) {
             if (outcome === 'success' || outcome === 'criticalsuccess') {
                 hitTargets = targets;
             } else {
@@ -391,7 +391,7 @@ export class AASystemData {
         let hitTargets = input.hitTargets || [];
         hitTargets = Array.from(hitTargets);
         //let targets;
-        if (game.settings.get("autoanimations", "playtrigger") === "hits") {
+        if (game.settings.get("autoanimations-modded", "playtrigger") === "hits") {
             targets = hitTargets;
         }
         
@@ -400,9 +400,9 @@ export class AASystemData {
             if (!item?.hasDamage() && !item?.hasHealing()) {
                 return true
             }
-            if (game.settings.get("autoanimations", "playtrigger") === "rolldamage") {
+            if (game.settings.get("autoanimations-modded", "playtrigger") === "rolldamage") {
                 return commonEventTypes.concat(["roll-damage"]).includes(eventType)
-            } if (game.settings.get("autoanimations", "playtrigger") === "applydamage") {
+            } if (game.settings.get("autoanimations-modded", "playtrigger") === "applydamage") {
                 return commonEventTypes.concat(["apply-damage"]).includes(eventType)
             }
             return commonEventTypes.concat(["roll-attack"]).includes(eventType)
@@ -537,7 +537,7 @@ export class AASystemData {
     }
     
     static async sandbox(input) {
-		//console.debug("Autoanimations | Test :", input);
+		//console.debug("autoanimations-modded | Test :", input);
         const itemId = this._extractItemIdSandbox(input.data?.content);
 		//console.debug(itemId);
 		const name = this._extractNameSandbox(input.data?.content);
@@ -546,7 +546,7 @@ export class AASystemData {
 		let token = null;
 		if (tokens.length > 0){
 			for (let i = 0; i < tokens.length; i++) {
-				//console.debug("Autoanimations | looping name:", tokens[i].actor.data.name);
+				//console.debug("autoanimations-modded | looping name:", tokens[i].actor.data.name);
 				if (tokens[i].actor.data.name.localeCompare(name) == 0){
 					token = tokens[i];
 					break;
@@ -556,7 +556,7 @@ export class AASystemData {
 			tokens = canvas.tokens.placeables;
 			if (tokens.length > 0){
 				for (let i = 0; i < tokens.length; i++) {
-					//console.debug("Autoanimations | looping name:", tokens[i].actor.data.name);
+					//console.debug("autoanimations-modded | looping name:", tokens[i].actor.data.name);
 					if (tokens[i].actor.data.name.localeCompare(name) == 0){
 						token = tokens[i];
 						break;
@@ -568,11 +568,11 @@ export class AASystemData {
 			}
 		}
 		if (!token) {
-			console.debug("Autoanimations | No token found:", input);
+			console.debug("autoanimations-modded | No token found:", input);
 			return {};
 		}
-		//console.debug("Autoanimations | token :", token);
-		//console.debug("Autoanimations | items :", token.actor.data.data.citems);
+		//console.debug("autoanimations-modded | token :", token);
+		//console.debug("autoanimations-modded | items :", token.actor.data.data.citems);
         const item = token.actor.data.data.citems?.find( ({ id }) => id === itemId ) ?? "";
 		if (!item) {
 			return {};
@@ -583,23 +583,23 @@ export class AASystemData {
     }
 
     static _extractItemIdSandbox(content) {
-		//console.log("Autoanimations | Extract data-item-id for message :", $(content));
-		//console.log("Autoanimations | Extract data-item-id for message :", content);
+		//console.log("autoanimations-modded | Extract data-item-id for message :", $(content));
+		//console.log("autoanimations-modded | Extract data-item-id for message :", content);
         try {
             return $(content).find(".roll-citemlink").attr("id");
         } catch (exception) {
-            console.debug("Autoanimations | Couldn´t extract data-item-id for message :", content);
+            console.debug("autoanimations-modded | Couldn´t extract data-item-id for message :", content);
             return null;
         }
     }
 	
 	static _extractNameSandbox(content) {
-		//console.log("Autoanimations | Extract name for message :", $(content));
-		//console.log("Autoanimations | Extract name for message :", content);
+		//console.log("autoanimations-modded | Extract name for message :", $(content));
+		//console.log("autoanimations-modded | Extract name for message :", content);
         try {
             return $(content).find(".roll-sender-image").attr("title");
         } catch (exception) {
-            console.debug("Autoanimations | Couldn´t extract name for message :", content);
+            console.debug("autoanimations-modded | Couldn´t extract name for message :", content);
             return null;
         }
     }
@@ -647,7 +647,7 @@ export class AASystemData {
         try {
             return $(content).attr("data-item-id");
         } catch (exception) {
-            console.log("Autoanimations | Couldn´t extract data-item-id for message :", content);
+            console.log("autoanimations-modded | Couldn´t extract data-item-id for message :", content);
             return null;
         }
     }

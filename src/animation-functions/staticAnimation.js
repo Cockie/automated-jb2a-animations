@@ -6,7 +6,7 @@ const wait = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
 export async function staticAnimation(handler, animationData) {
 
-    let globalDelay = game.settings.get("autoanimations", "globaldelay");
+    let globalDelay = game.settings.get("autoanimations-modded", "globaldelay");
     await wait(globalDelay);
     const sourceToken = handler.sourceToken;
 

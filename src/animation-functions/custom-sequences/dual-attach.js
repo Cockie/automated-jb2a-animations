@@ -5,10 +5,10 @@ import { AAanimationData } from "../../aa-classes/animation-data.js";
 const wait = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
 export async function dualAttach(handler, animationData) {
-    const aaDebug = game.settings.get("autoanimations", "debug")
+    const aaDebug = game.settings.get("autoanimations-modded", "debug")
 
     // Sets JB2A database and Global Delay
-    let globalDelay = game.settings.get("autoanimations", "globaldelay");
+    let globalDelay = game.settings.get("autoanimations-modded", "globaldelay");
     await wait(globalDelay);
 
     const data = animationData.primary;

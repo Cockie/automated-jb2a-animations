@@ -12,7 +12,7 @@ export class AAItemSettings extends FormApplication {
 
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            template: './modules/autoanimations/src/item-sheet-handlers/aa-templates/item-central.html',
+            template: './modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/item-central.html',
             id: 'AA-item-settings',
             class:'AA-item-app',
             title: game.i18n.localize("AUTOANIM.tabTitle"),
@@ -31,9 +31,9 @@ export class AAItemSettings extends FormApplication {
         const patreon = moduleIncludes("jb2a_patreon");
         const itemNameItem = this.object.name?.toLowerCase() ?? "";
         const oldName = this.object.name || this.object.sourceName;
-        const itemNameFlag = flags.autoanimations?.animation?.toLowerCase() ?? "";
+        const itemNameFlag = flags.autoanimationsmodded?.animation?.toLowerCase() ?? "";
 
-        const override = flags.autoanimations?.override;
+        const override = flags.autoanimationsmodded?.override;
         let oldItemName;
         switch (true) {
             case (!override):
@@ -45,18 +45,18 @@ export class AAItemSettings extends FormApplication {
                 break;
         }
 
-        const switchName = flags.autoanimations?.meleeSwitch?.animation ?? "";
+        const switchName = flags.autoanimationsmodded?.meleeSwitch?.animation ?? "";
 
         const levels3d = game.modules.get("levels-3d-preview")?.active;
-        const animType = flags.autoanimations?.animType;
-        const templateType = flags.autoanimations?.options?.menuType ?? "";
+        const animType = flags.autoanimationsmodded?.animType;
+        const templateType = flags.autoanimationsmodded?.options?.menuType ?? "";
 
-        //const animationRepeat = flags.autoanimations?.options?.repeat > 50 ? 50 : flags.autoanimations?.options?.repeat;
-        //const explosionLoops = flags.autoanimations?.explosions?.repeat > 50 ? 50 : flags.autoanimations?.explosions?.repeat;
+        //const animationRepeat = flags.autoanimationsmodded?.options?.repeat > 50 ? 50 : flags.autoanimations?.options?.repeat;
+        //const explosionLoops = flags.autoanimationsmodded?.explosions?.repeat > 50 ? 50 : flags.autoanimations?.explosions?.repeat;
         const returnWeapons = ["dagger", "hammer", "greatsword", "chakram"];
 
         const autoCheck = AutorecFunctions._checkAutoRec(oldName);
-        const autoObject = autoCheck ? AutorecFunctions._findObjectFromArray(game.settings.get('autoanimations', 'aaAutorec'), AutorecFunctions._rinseName(oldName)) : {};
+        const autoObject = autoCheck ? AutorecFunctions._findObjectFromArray(game.settings.get('autoanimations-modded', 'aaAutorec'), AutorecFunctions._rinseName(oldName)) : {};
         const videoPreview = override ? AATabFunctions._customPreview(flags, patreon) : AutorecFunctions._autoPreview(oldName, patreon, flags)
 
         let content = "";
@@ -65,7 +65,7 @@ export class AAItemSettings extends FormApplication {
             case !videoPreview:
                 break;
             default:
-                switch (game.settings.get("autoanimations", "videoLoop")) {
+                switch (game.settings.get("autoanimations-modded", "videoLoop")) {
                     case "0":
                         break;
                     case "1":
@@ -87,8 +87,8 @@ export class AAItemSettings extends FormApplication {
             menuVariants: aaVariantMenu,
             menuColors: aaColorMenu,
 
-            showMacroOption: flags.autoanimations?.killAnim || flags.autoanimations?.override ? true : false,
-            isMacroChecked: flags.autoanimations?.killAnim || flags.autoanimations?.override ? flags.autoanimations?.macro?.enable : false,
+            showMacroOption: flags.autoanimationsmodded?.killAnim || flags.autoanimationsmodded?.override ? true : false,
+            isMacroChecked: flags.autoanimationsmodded?.killAnim || flags.autoanimationsmodded?.override ? flags.autoanimationsmodded?.macro?.enable : false,
 
             autoObject: autoObject,
 
@@ -102,8 +102,8 @@ export class AAItemSettings extends FormApplication {
             preset: override && animType === "preset",
             menu3d: override && animType === "menu3d",
 
-            persistent: flags.autoanimations?.options?.persistent && (flags.autoanimations?.options?.persistType === 'overheadtile'),
-            circRectPersist: flags.autoanimations?.options?.persistent && (templateType === 'circle' || templateType === 'square') ? true : false,
+            persistent: flags.autoanimationsmodded?.options?.persistent && (flags.autoanimationsmodded?.options?.persistType === 'overheadtile'),
+            circRectPersist: flags.autoanimationsmodded?.options?.persistent && (templateType === 'circle' || templateType === 'square') ? true : false,
             animationType: levels3d ? aaMenuLists.menuOptions3D : aaMenuLists.menuOptions,
 
             content: content,
@@ -111,22 +111,22 @@ export class AAItemSettings extends FormApplication {
             ammo5e: game.system.id === "dnd5e" ? true : false,
 
             levels3d: levels3d ? true : false,
-            color3D01Projectile: flags.autoanimations?.levels3d?.projectile?.color01?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
-            color3D02Projectile: flags.autoanimations?.levels3d?.projectile?.color02?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
-            color3D01Ray: flags.autoanimations?.levels3d?.ray?.color01?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
-            color3D02Ray: flags.autoanimations?.levels3d?.ray?.color02?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
-            color3D01Explosion: flags.autoanimations?.levels3d?.explosion?.color01?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
-            color3D02Explosion: flags.autoanimations?.levels3d?.explosion?.color02?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
-            color3D01AddExplosion: flags.autoanimations?.levels3d?.addexplosion?.color01?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
-            color3D02AddExplosion: flags.autoanimations?.levels3d?.addexplosion?.color02?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
-            color3D01Sprite: flags.autoanimations?.levels3d?.sprite?.color01?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
+            color3D01Projectile: flags.autoanimationsmodded?.levels3d?.projectile?.color01?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
+            color3D02Projectile: flags.autoanimationsmodded?.levels3d?.projectile?.color02?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
+            color3D01Ray: flags.autoanimationsmodded?.levels3d?.ray?.color01?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
+            color3D02Ray: flags.autoanimationsmodded?.levels3d?.ray?.color02?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
+            color3D01Explosion: flags.autoanimationsmodded?.levels3d?.explosion?.color01?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
+            color3D02Explosion: flags.autoanimationsmodded?.levels3d?.explosion?.color02?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
+            color3D01AddExplosion: flags.autoanimationsmodded?.levels3d?.addexplosion?.color01?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
+            color3D02AddExplosion: flags.autoanimationsmodded?.levels3d?.addexplosion?.color02?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
+            color3D01Sprite: flags.autoanimationsmodded?.levels3d?.sprite?.color01?.toString(16).padStart(6, '0').toUpperCase() || "#FFFFFF",
 
-            sprite3DProjectile: flags.autoanimations?.levels3d?.projectile?.sprite ?? "modules/levels-3d-preview/assets/particles/emberssmall.png",
-            sprite3DRay: flags.autoanimations?.levels3d?.projectile?.sprite ?? "modules/levels-3d-preview/assets/particles/emberssmall.png",
-            sprite3DExplosion: flags.autoanimations?.levels3d?.explosion?.sprite ?? "modules/levels-3d-preview/assets/particles/dust.png",
-            sprite3DAddExplosion: flags.autoanimations?.levels3d?.addexplosion?.sprite ?? "modules/levels-3d-preview/assets/particles/dust.png",
-            sprite3DSprite: flags.autoanimations?.levels3d?.sprite?.sprite ?? "modules/levels-3d-preview/assets/particles/emberssmall.png",
-            //currentVersion: !flags.autoanimations?.version ? this.object.setFlag('autoanimations', 'version', currentFlagVersion) : "",
+            sprite3DProjectile: flags.autoanimationsmodded?.levels3d?.projectile?.sprite ?? "modules/levels-3d-preview/assets/particles/emberssmall.png",
+            sprite3DRay: flags.autoanimationsmodded?.levels3d?.projectile?.sprite ?? "modules/levels-3d-preview/assets/particles/emberssmall.png",
+            sprite3DExplosion: flags.autoanimationsmodded?.levels3d?.explosion?.sprite ?? "modules/levels-3d-preview/assets/particles/dust.png",
+            sprite3DAddExplosion: flags.autoanimationsmodded?.levels3d?.addexplosion?.sprite ?? "modules/levels-3d-preview/assets/particles/dust.png",
+            sprite3DSprite: flags.autoanimationsmodded?.levels3d?.sprite?.sprite ?? "modules/levels-3d-preview/assets/particles/emberssmall.png",
+            //currentVersion: !flags.autoanimationsmodded?.version ? this.object.setFlag('autoanimations-modded', 'version', currentFlagVersion) : "",
             currentVersion: currentFlagVersion,
             isGM: game.user.isGM ? true : false,
         };

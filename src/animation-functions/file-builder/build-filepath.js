@@ -39,12 +39,12 @@ export async function buildFile(getMeta, dbType, name, animationType, animationV
             color = colorArray.some(el => color === el) ? color : colorArray[0];
         }
 
-        file = color === "random" ? `autoanimations.${type}.${[menuType]}.${path}.${variant}` : `autoanimations.${type}.${[menuType]}.${path}.${variant}.${color}`;
+        file = color === "random" ? `autoanimations-modded.${type}.${[menuType]}.${path}.${variant}` : `autoanimations-modded.${type}.${[menuType]}.${path}.${variant}.${color}`;
         //msFile = color === "random" ? `autoanimations.${type}.${[menuType]}.${path}.02` : `autoanimations.${type}.${[menuType]}.${path}.02.${color}`;
         //let file = color === "random" ? `autoanimations.${type}.${path}.${variant}` : `autoanimations.${type}.${path}.${variant}.${color}`;
         //let msFile = color === "random" ? `autoanimations.${type}.${path}.02` : `autoanimations.${type}.${path}.02.${color}`;
         const returnArray = Object.keys(jb2a.return.weapon);
-        returnFile = returnArray.some(el => path === el) ? `autoanimations.return.weapon.${path}.${variant}.${color}` : "";
+        returnFile = returnArray.some(el => path === el) ? `autoanimations-modded.return.weapon.${path}.${variant}.${color}` : "";
         fileData = color === "random" ? jb2a[type]?.[menuType]?.[path]?.[variant]?.[Object.keys(jb2a[type]?.[menuType]?.[path]?.[variant] || {})[0]][0] : jb2a[type]?.[menuType]?.[path]?.[variant]?.[color]?.[0];
         //metadata = await getVideoDimensionsOf(fileData);
     }

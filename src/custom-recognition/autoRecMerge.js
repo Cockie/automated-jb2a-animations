@@ -8,7 +8,7 @@ export const autoRecMigration = {
         ui.notifications.info("Automated Animations: Merging the Automatic Recognition Menu")
 
         for (let [version, migration] of Object.entries(this.migrations)) {
-            let currentAutorec = game.settings.get('autoanimations', 'aaAutorec')
+            let currentAutorec = game.settings.get('autoanimations-modded', 'aaAutorec')
             let flagVersion = currentAutorec.version;
 
             if (flagVersion >= Number(version)) continue;
@@ -60,7 +60,7 @@ export const autoRecMigration = {
                 }
             }
             currentAutorec.version = 1;
-            await game.settings.set('autoanimations', 'aaAutorec', currentAutorec)
+            await game.settings.set('autoanimations-modded', 'aaAutorec', currentAutorec)
         },
         "2": async (currentAutorec) => {
             const meleeObject = currentAutorec.melee;
@@ -71,7 +71,7 @@ export const autoRecMigration = {
                 }
             }
             currentAutorec.version = 2;
-            await game.settings.set('autoanimations', 'aaAutorec', currentAutorec)
+            await game.settings.set('autoanimations-modded', 'aaAutorec', currentAutorec)
         },
         "3": async (currentAutorec) => {
             const templateObject = currentAutorec.templates;
@@ -99,7 +99,7 @@ export const autoRecMigration = {
                 }
             }
             currentAutorec.version = 3;
-            await game.settings.set('autoanimations', 'aaAutorec', currentAutorec)
+            await game.settings.set('autoanimations-modded', 'aaAutorec', currentAutorec)
         },
         "4": async (currentAutorec) => {
             const meleeObject = currentAutorec.melee;
@@ -527,7 +527,7 @@ export const autoRecMigration = {
                 }
             }
             currentAutorec.version = 4;
-            await game.settings.set('autoanimations', 'aaAutorec', currentAutorec)
+            await game.settings.set('autoanimations-modded', 'aaAutorec', currentAutorec)
         }
 
     }

@@ -6,13 +6,13 @@
 </div>
 <div class='aa-default-container'>
     <!--Disable Animaton Button-->
-    <input type='Number' name='flags.autoanimations.version' value="{{currentVersion}}" style="display:none" />
+    <input type='Number' name='flags.autoanimationsmodded.version' value="{{currentVersion}}" style="display:none" />
     <div class="kill-animation" style='grid-column: 1 / 2;grid-row: 1 / 2;'>
         <div class="form-group">
             <label style='text-align: left;'><strong>{{localize "AUTOANIM.disable"}}</strong></label>
             <div class="aa-divider"></div>
-            <input type="checkbox" name="flags.autoanimations.killAnim" value="flags.autoanimations.killAnim"
-                data-dtype="{{Boolean}}" {{checked flags.autoanimations.killAnim}} />
+            <input type="checkbox" name="flags.autoanimationsmodded.killAnim" value="flags.autoanimationsmodded.killAnim"
+                data-dtype="{{Boolean}}" {{checked flags.autoanimationsmodded.killAnim}} />
         </div>
     </div>
     {{#if showMacroOption}}
@@ -21,42 +21,42 @@
             <label style='text-align: left;'><strong>{{localize "AUTOANIM.add"}} {{localize
                     "AUTOANIM.macro"}}</strong></label>
             <div class="aa-divider"></div>
-            <input type="checkbox" name="flags.autoanimations.macro.enable" value="flags.autoanimations.macro.enable"
+            <input type="checkbox" name="flags.autoanimationsmodded.macro.enable" value="flags.autoanimationsmodded.macro.enable"
                 data-dtype="{{Boolean}}" {{checked isMacroChecked}} />
         </div>
     </div>
     {{/if}}
-    {{#if flags.autoanimations.killAnim}}
+    {{#if flags.autoanimationsmodded.killAnim}}
     <div class="kill-animation" style='grid-column: 1 / 2;grid-row: 2 / 3;'>
         <div class="form-group">
             <label style='text-align: left;'><strong>{{localize "AUTOANIM.add"}} {{localize
                     "AUTOANIM.sound"}}</strong></label>
             <div class="aa-divider"></div>
-            <input type="checkbox" name="flags.autoanimations.audio.a01.enable"
-                value="flags.autoanimations.audio.a01.enable" data-dtype="{{Boolean}}" {{checked
-                flags.autoanimations.audio.a01.enable}} />
+            <input type="checkbox" name="flags.autoanimationsmodded.audio.a01.enable"
+                value="flags.autoanimationsmodded.audio.a01.enable" data-dtype="{{Boolean}}" {{checked
+                flags.autoanimationsmodded.audio.a01.enable}} />
         </div>
     </div>
     {{/if}}
     <div class='animation-not-disabled'>
-        {{#unless flags.autoanimations.killAnim}}
+        {{#unless flags.autoanimationsmodded.killAnim}}
         {{#unless autoRecognizedNoOverride}}
         <!--Play Animations Below Tokens Button-->
         <div class="form-group" style='grid-column: 1 / 2;grid-row: 3 / 4;'>
             <label style='text-align: left;'><strong>{{localize "AUTOANIM.playBelow"}}</strong></label>
             <div class="aa-divider"></div>
-            <input type="checkbox" name="flags.autoanimations.animLevel" value="flags.autoanimations.animLevel"
-                data-dtype="{{Boolean}}" {{checked flags.autoanimations.animLevel}} />
+            <input type="checkbox" name="flags.autoanimationsmodded.animLevel" value="flags.autoanimationsmodded.animLevel"
+                data-dtype="{{Boolean}}" {{checked flags.autoanimationsmodded.animLevel}} />
         </div>
         {{/unless}}
         <div class="form-group" style='grid-column: 1 / 2;grid-row: 5 / 6;'>
             <label style='text-align: left;'><strong>{{localize "AUTOANIM.customize"}} {{localize
                     "AUTOANIM.animation"}}</strong></label>
             <div class="aa-divider"></div>
-            <input type="checkbox" name="flags.autoanimations.override" value="flags.autoanimations.override"
-                data-dtype="{{Boolean}}" {{checked flags.autoanimations.override}} />
+            <input type="checkbox" name="flags.autoanimationsmodded.override" value="flags.autoanimationsmodded.override"
+                data-dtype="{{Boolean}}" {{checked flags.autoanimationsmodded.override}} />
         </div>
-        {{#unless flags.autoanimations.override}}
+        {{#unless flags.autoanimationsmodded.override}}
         {{#if autoRecognized}}
         <!--If auto-recognized, Animation name will be listed here-->
         <div class="form-group auto-recognized" style='grid-column: 1 / 2;grid-row: 6 / 7;'>
@@ -65,8 +65,8 @@
         <div class="form-group" style='grid-column: 1 / 2;grid-row: 7 / 8;'>
             <label style='text-align: left;'><strong>{{localize "AUTOANIM.overrideauto"}}</strong></label>
             <div class="aa-divider"></div>
-            <input type="checkbox" name="flags.autoanimations.autoOverride.enable"
-                value="flags.autoanimations.autoOverride.enable" {{checked flags.autoanimations.autoOverride.enable}}>
+            <input type="checkbox" name="flags.autoanimationsmodded.autoOverride.enable"
+                value="flags.autoanimationsmodded.autoOverride.enable" {{checked flags.autoanimationsmodded.autoOverride.enable}}>
         </div>
         {{/if}}
         {{/unless}}
@@ -74,16 +74,16 @@
     </div>
 </div>
 
-{{#unless flags.autoanimations.killAnim}}
-{{#if flags.autoanimations.override}}
+{{#unless flags.autoanimationsmodded.killAnim}}
+{{#if flags.autoanimationsmodded.override}}
 <!--Choose the Animation Type-->
 <div class="aa-options-even aa-options-settings animation-not-disabled">
     <div class='flexcol' style='grid-row: 1 / 2;grid-column: 2 / 4;'>
         <label style='font-size: large;'><strong>{{localize "AUTOANIM.animation"}} {{localize
                 "AUTOANIM.type"}}</strong></label>
-        <select style='text-align: center;' name="flags.autoanimations.animType">
+        <select style='text-align: center;' name="flags.autoanimationsmodded.animType">
             <option value=""></option>
-            {{#select flags.autoanimations.animType}}
+            {{#select flags.autoanimationsmodded.animType}}
             <option value="static">{{localize "AUTOANIM.onToken"}}</option>
             <option value="aura">{{localize "AUTOANIM.typeAuras"}}</option>
             <option value="preset">{{localize "AUTOANIM.presets"}}</option>
@@ -94,14 +94,14 @@
 {{/if}}
 {{/unless}}
 
-{{#unless flags.autoanimations.killAnim}}
+{{#unless flags.autoanimationsmodded.killAnim}}
 
 {{#if static}}
-{{> 'modules/autoanimations/src/item-sheet-handlers/aa-templates/animation-menus/item-ontoken.html' }}
+{{> 'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animation-menus/item-ontoken.html' }}
 {{/if}}
 
 {{#if aura}}
-{{> 'modules/autoanimations/src/item-sheet-handlers/aa-templates/animation-menus/item-auras.html' }}
+{{> 'modules/autoanimations-modded/src/item-sheet-handlers/aa-templates/animation-menus/item-auras.html' }}
 {{/if}}
 
 {{#if preset}}
@@ -109,8 +109,8 @@
     <div class="aa-primary-container">
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 2 / 3;'>
             <label style='font-size: large;'><strong>{{localize "AUTOANIM.choosePreset"}}</strong></label>
-            <select name="flags.autoanimations.animation">
-                {{#select flags.autoanimations.animation}}
+            <select name="flags.autoanimationsmodded.animation">
+                {{#select flags.autoanimationsmodded.animation}}
                 <option value=""></option>
                 <option value="bless">{{localize "AUTOANIM.bless"}}</option>
                 <option value="shieldspell">{{localize "AUTOANIM.shieldspell"}}</option>
@@ -119,7 +119,7 @@
         </div>
     </div>
     <!--Shield Spell-->
-    {{#ifEquals flags.autoanimations.animation "bless"}}
+    {{#ifEquals flags.autoanimationsmodded.animation "bless"}}
     <div div class='flexrow aa-section-label text-green'>
         <label style="font-size: large;">{{localize "AUTOANIM.primary"}} {{localize
             "AUTOANIM.animation"}}</label>
@@ -127,8 +127,8 @@
     <div class="aa-primary-container">
         <div class='flexcol' style='grid-row: 2 / 3;grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.color">
-                {{#select flags.autoanimations.color}}
+            <select name="flags.autoanimationsmodded.color">
+                {{#select flags.autoanimationsmodded.color}}
                 {{#each (lookup menuColors.static.spell.bless '01') as |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
@@ -143,68 +143,68 @@
     <div class="aa-options-even aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.scale"}}</label>
-            <input type="Number" name="flags.autoanimations.options.scale"
-                value="{{flags.autoanimations.options.scale}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.options.scale"
+                value="{{flags.autoanimationsmodded.options.scale}}" data-dtype="Number" placeholder=1>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.persistant"}}?</label>
-            <input type="checkbox" name="flags.autoanimations.options.persistent" {{checked
-                flags.autoanimations.options.persistent}}>
+            <input type="checkbox" name="flags.autoanimationsmodded.options.persistent" {{checked
+                flags.autoanimationsmodded.options.persistent}}>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.unbindAlpha"}}?</label>
-            <input type="checkbox" name="flags.autoanimations.options.unbindAlpha" {{checked
-                flags.autoanimations.options.unbindAlpha}}>
+            <input type="checkbox" name="flags.autoanimationsmodded.options.unbindAlpha" {{checked
+                flags.autoanimationsmodded.options.unbindAlpha}}>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 4 / 5;'>
             <label>{{localize "AUTOANIM.unbindVisibility"}}?</label>
-            <input type="checkbox" name="flags.autoanimations.options.unbindVisibility" {{checked
-                flags.autoanimations.options.unbindVisibility}}>
+            <input type="checkbox" name="flags.autoanimationsmodded.options.unbindVisibility" {{checked
+                flags.autoanimationsmodded.options.unbindVisibility}}>
         </div>
     </div>
     <div class='aa-checkbox-label' style="text-align: center;">
         <div class='form-group' style='grid-row: 1 / 2; grid-column: 2 / 3;'>
             <label style="font-size: large;">{{localize "AUTOANIM.primary"}} {{localize
                 "AUTOANIM.sound"}}</label>
-            <input type="checkbox" name="flags.autoanimations.audio.a01.enable" {{checked
-                flags.autoanimations.audio.a01.enable}}>
+            <input type="checkbox" name="flags.autoanimationsmodded.audio.a01.enable" {{checked
+                flags.autoanimationsmodded.audio.a01.enable}}>
         </div>
     </div>
     <div class="aa-subSection-divider"></div>
-    {{#if flags.autoanimations.audio.a01.enable}}
+    {{#if flags.autoanimationsmodded.audio.a01.enable}}
     <div class="aa-options-odd aa-options-settings">
         <!--Audio filePicker and Text Input-->
         <div class='form-group' style='grid-row: 1 / 2;grid-column: 1 / 6;'>
-            <input type="text" class="files" name="flags.autoanimations.audio.a01.file"
-                value="{{flags.autoanimations.audio.a01.file}}" style="text-align: start;">
+            <input type="text" class="files" name="flags.autoanimationsmodded.audio.a01.file"
+                value="{{flags.autoanimationsmodded.audio.a01.file}}" style="text-align: start;">
             <button type="button" class="file-picker" data-type="audio"
-                data-target="flags.autoanimations.audio.a01.file" tabindex="-1" title="Browse Files">
+                data-target="flags.autoanimationsmodded.audio.a01.file" tabindex="-1" title="Browse Files">
                 <i class="fas fa-music"></i>
             </button>
         </div>
         <!--Set Sound Start Time-->
         <div class="flexcol" style='grid-row: 2 / 3;grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.start"}} {{localize "AUTOANIM.time"}}</label>
-            <input type="Number" name="flags.autoanimations.audio.a01.startTime" step="1"
-                value="{{flags.autoanimations.audio.a01.startTime}}" placeholder=0>
+            <input type="Number" name="flags.autoanimationsmodded.audio.a01.startTime" step="1"
+                value="{{flags.autoanimationsmodded.audio.a01.startTime}}" placeholder=0>
         </div>
         <!--Audio Volume-->
         <div class="flexcol" style='grid-row: 2 / 3;grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.volume"}}</label>
-            <input type="Number" name="flags.autoanimations.audio.a01.volume" min="0" max="1" step="0.01"
-                value="{{flags.autoanimations.audio.a01.volume}}" placeholder=0.5>
+            <input type="Number" name="flags.autoanimationsmodded.audio.a01.volume" min="0" max="1" step="0.01"
+                value="{{flags.autoanimationsmodded.audio.a01.volume}}" placeholder=0.5>
         </div>
         <!--Audio Delay-->
         <div class="flexcol" style='grid-row: 2 / 3;grid-column: 5 / 6;'>
             <label>{{localize "AUTOANIM.delay"}}</label>
-            <input type="Number" name="flags.autoanimations.audio.a01.delay" min="0"
-                value="{{flags.autoanimations.audio.a01.delay}}" placeholder=0>
+            <input type="Number" name="flags.autoanimationsmodded.audio.a01.delay" min="0"
+                value="{{flags.autoanimationsmodded.audio.a01.delay}}" placeholder=0>
         </div>
     </div>
     {{/if}}
     {{/ifEquals}}
     <!--Shield Spell-->
-    {{#ifEquals flags.autoanimations.animation "shieldspell"}}
+    {{#ifEquals flags.autoanimationsmodded.animation "shieldspell"}}
     <div div class='flexrow aa-section-label text-green'>
         <label style="font-size: large;">{{localize "AUTOANIM.primary"}} {{localize
             "AUTOANIM.animation"}}</label>
@@ -212,8 +212,8 @@
     <div class="aa-primary-container">
         <div class='flexcol' style='grid-row: 2 / 3;grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.variant"}}</label>
-            <select name="flags.autoanimations.options.variant">
-                {{#select flags.autoanimations.options.variant}}
+            <select name="flags.autoanimationsmodded.options.variant">
+                {{#select flags.autoanimationsmodded.options.variant}}
                 <option value=""> </option>
                 {{#each menuVariants.static.spell.shieldspell as |name key|}}
                 <option value="{{key}}">{{name}}</option>
@@ -223,10 +223,10 @@
         </div>
         <div class='flexcol' style='grid-row: 2 / 3;grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.color"}}</label>
-            <select name="flags.autoanimations.color">
-                {{#select flags.autoanimations.color}}
+            <select name="flags.autoanimationsmodded.color">
+                {{#select flags.autoanimationsmodded.color}}
                 <option value=""> </option>
-                {{#each (lookup menuColors.static.spell.shieldspell (lookup flags.autoanimations.options 'variant'))
+                {{#each (lookup menuColors.static.spell.shieldspell (lookup flags.autoanimationsmodded.options 'variant'))
                 as |name key|}}
                 <option value="{{key}}">{{name}}</option>
                 {{/each}}
@@ -235,8 +235,8 @@
         </div>
         <div class='flexcol' style='grid-row: 2 / 3;grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.endEffect"}}</label>
-            <select name="flags.autoanimations.options.shieldVar">
-                {{#select flags.autoanimations.options.shieldVar}}
+            <select name="flags.autoanimationsmodded.options.shieldVar">
+                {{#select flags.autoanimationsmodded.options.shieldVar}}
                 <option value="outro_explode">{{localize "AUTOANIM.explode"}}</option>
                 <option value="outro_fade">{{localize "AUTOANIM.fade"}}</option>
                 {{/select}}
@@ -250,62 +250,62 @@
     <div class="aa-options-even aa-options-settings">
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.scale"}}</label>
-            <input type="Number" name="flags.autoanimations.options.scale"
-                value="{{flags.autoanimations.options.scale}}" data-dtype="Number" placeholder=1>
+            <input type="Number" name="flags.autoanimationsmodded.options.scale"
+                value="{{flags.autoanimationsmodded.options.scale}}" data-dtype="Number" placeholder=1>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 2 / 3;'>
             <label>{{localize "AUTOANIM.persistant"}}?</label>
-            <input type="checkbox" name="flags.autoanimations.options.persistent" {{checked
-                flags.autoanimations.options.persistent}}>
+            <input type="checkbox" name="flags.autoanimationsmodded.options.persistent" {{checked
+                flags.autoanimationsmodded.options.persistent}}>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.unbindAlpha"}}?</label>
-            <input type="checkbox" name="flags.autoanimations.options.unbindAlpha" {{checked
-                flags.autoanimations.options.unbindAlpha}}>
+            <input type="checkbox" name="flags.autoanimationsmodded.options.unbindAlpha" {{checked
+                flags.autoanimationsmodded.options.unbindAlpha}}>
         </div>
         <div class="flexcol" style='grid-row: 1 / 2; grid-column: 4 / 5;'>
             <label>{{localize "AUTOANIM.unbindVisibility"}}?</label>
-            <input type="checkbox" name="flags.autoanimations.options.unbindVisibility" {{checked
-                flags.autoanimations.options.unbindVisibility}}>
+            <input type="checkbox" name="flags.autoanimationsmodded.options.unbindVisibility" {{checked
+                flags.autoanimationsmodded.options.unbindVisibility}}>
         </div>
     </div>
     <div class='aa-checkbox-label' style="text-align: center;">
         <div class='form-group' style='grid-row: 1 / 2; grid-column: 2 / 3;'>
             <label style="font-size: large;">{{localize "AUTOANIM.primary"}} {{localize
                 "AUTOANIM.sound"}}</label>
-            <input type="checkbox" name="flags.autoanimations.audio.a01.enable" {{checked
-                flags.autoanimations.audio.a01.enable}}>
+            <input type="checkbox" name="flags.autoanimationsmodded.audio.a01.enable" {{checked
+                flags.autoanimationsmodded.audio.a01.enable}}>
         </div>
     </div>
     <div class="aa-subSection-divider"></div>
-    {{#if flags.autoanimations.audio.a01.enable}}
+    {{#if flags.autoanimationsmodded.audio.a01.enable}}
     <div class="aa-options-odd aa-options-settings">
         <!--Audio filePicker and Text Input-->
         <div class='form-group' style='grid-row: 1 / 2;grid-column: 1 / 6;'>
-            <input type="text" class="files" name="flags.autoanimations.audio.a01.file"
-                value="{{flags.autoanimations.audio.a01.file}}" style="text-align: start;">
+            <input type="text" class="files" name="flags.autoanimationsmodded.audio.a01.file"
+                value="{{flags.autoanimationsmodded.audio.a01.file}}" style="text-align: start;">
             <button type="button" class="file-picker" data-type="audio"
-                data-target="flags.autoanimations.audio.a01.file" tabindex="-1" title="Browse Files">
+                data-target="flags.autoanimationsmodded.audio.a01.file" tabindex="-1" title="Browse Files">
                 <i class="fas fa-music"></i>
             </button>
         </div>
         <!--Set Sound Start Time-->
         <div class="flexcol" style='grid-row: 2 / 3;grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.start"}} {{localize "AUTOANIM.time"}}</label>
-            <input type="Number" name="flags.autoanimations.audio.a01.startTime" step="1"
-                value="{{flags.autoanimations.audio.a01.startTime}}" placeholder=0>
+            <input type="Number" name="flags.autoanimationsmodded.audio.a01.startTime" step="1"
+                value="{{flags.autoanimationsmodded.audio.a01.startTime}}" placeholder=0>
         </div>
         <!--Audio Volume-->
         <div class="flexcol" style='grid-row: 2 / 3;grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.volume"}}</label>
-            <input type="Number" name="flags.autoanimations.audio.a01.volume" min="0" max="1" step="0.01"
-                style='width: 3em' value="{{flags.autoanimations.audio.a01.volume}}" placeholder=0.5>
+            <input type="Number" name="flags.autoanimationsmodded.audio.a01.volume" min="0" max="1" step="0.01"
+                style='width: 3em' value="{{flags.autoanimationsmodded.audio.a01.volume}}" placeholder=0.5>
         </div>
         <!--Audio Delay-->
         <div class="flexcol" style='grid-row: 2 / 3;grid-column: 5 / 6;'>
             <label>{{localize "AUTOANIM.delay"}}</label>
-            <input type="Number" name="flags.autoanimations.audio.a01.delay" min="0"
-                value="{{flags.autoanimations.audio.a01.delay}}" style='width: 3em' placeholder=0>
+            <input type="Number" name="flags.autoanimationsmodded.audio.a01.delay" min="0"
+                value="{{flags.autoanimationsmodded.audio.a01.delay}}" style='width: 3em' placeholder=0>
         </div>
     </div>
     {{/if}}
@@ -318,38 +318,38 @@
 {{/unless}}
 
 
-{{#if flags.autoanimations.killAnim}}
+{{#if flags.autoanimationsmodded.killAnim}}
 <div style='padding:3px'>
 
 </div>
-{{#if flags.autoanimations.audio.a01.enable}}
+{{#if flags.autoanimationsmodded.audio.a01.enable}}
 <div class='flexrow aa-section-label text-green'>
     <label style="font-size: large;">{{localize "AUTOANIM.sound"}}</label>
 </div>
 <div class="aa-itemSection-divider">
     <div class="aa-options-odd aa-options-settings">
         <div class='form-group' style='grid-row: 1 / 2;grid-column: 1 / 6;'>
-            <input type="text" class="files" name="flags.autoanimations.audio.a01.file"
-                value="{{lookup flags.autoanimations.audio.a01 'file'}}">
+            <input type="text" class="files" name="flags.autoanimationsmodded.audio.a01.file"
+                value="{{lookup flags.autoanimationsmodded.audio.a01 'file'}}">
             <button type="button" class="file-picker" data-type="audio"
-                data-target="flags.autoanimations.audio.a01.file" tabindex="-1" title="Browse Files">
+                data-target="flags.autoanimationsmodded.audio.a01.file" tabindex="-1" title="Browse Files">
                 <i class="fas fa-music"></i>
             </button>
         </div>
         <div class="flexcol" style='grid-row: 3 / 4; grid-column: 1 / 2;'>
             <label>{{localize "AUTOANIM.start"}} {{localize "AUTOANIM.time"}}</label>
-            <input type="Number" name="flags.autoanimations.audio.a01.startTime" step="1"
-                value="{{flags.autoanimations.audio.a01.startTime}}" placeholder=0>
+            <input type="Number" name="flags.autoanimationsmodded.audio.a01.startTime" step="1"
+                value="{{flags.autoanimationsmodded.audio.a01.startTime}}" placeholder=0>
         </div>
         <div class="flexcol" style='grid-row: 3 / 4; grid-column: 3 / 4;'>
             <label>{{localize "AUTOANIM.volume"}}</label>
-            <input type="Number" name="flags.autoanimations.audio.a01.volume" min="0" max="1" step="0.01"
-                value="{{lookup flags.autoanimations.audio.a01 'volume'}}" placeholder=0.5>
+            <input type="Number" name="flags.autoanimationsmodded.audio.a01.volume" min="0" max="1" step="0.01"
+                value="{{lookup flags.autoanimationsmodded.audio.a01 'volume'}}" placeholder=0.5>
         </div>
         <div class="flexcol" style='grid-row: 3 / 4; grid-column: 5 / 6;'>
             <label>{{localize "AUTOANIM.delay"}}</label>
-            <input type="Number" name="flags.autoanimations.audio.a01.delay" min="0"
-                value="{{lookup flags.autoanimations.audio.a01 'delay'}}" placeholder=0>
+            <input type="Number" name="flags.autoanimationsmodded.audio.a01.delay" min="0"
+                value="{{lookup flags.autoanimationsmodded.audio.a01 'delay'}}" placeholder=0>
         </div>
     </div>
 </div>
@@ -359,13 +359,13 @@
 <div div class='flexrow aa-section-label text-green'>
     <label style="font-size: large;">{{localize "AUTOANIM.macro"}}</label>
 </div>
-{{#unless flags.autoanimations.killAnim}}
+{{#unless flags.autoanimationsmodded.killAnim}}
 <div class="aa-itemSection-divider">
     <div class="aa-options-even aa-options-settings">
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 1 / 3;'>
             <label style='font-weight: bold;'>{{localize 'AUTOANIM.playwhen'}}</label>
-            <select name="flags.autoanimations.macro.playWhen">
-                {{#select flags.autoanimations.macro.playWhen}}
+            <select name="flags.autoanimationsmodded.macro.playWhen">
+                {{#select flags.autoanimationsmodded.macro.playWhen}}
                 <option value="0">{{localize 'AUTOANIM.macroconcurrent'}}</option>
                 <option value="1">{{localize 'AUTOANIM.awaitmacro'}}</option>
                 {{/select}}
@@ -373,29 +373,29 @@
         </div>
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 3 / 5;'>
             <label style='font-weight: bold;'>{{localize 'AUTOANIM.macro'}} {{localize 'AUTOANIM.name'}}</label>
-            <input type="text" name="flags.autoanimations.macro.name"
-                value="{{lookup flags.autoanimations.macro 'name'}}">
+            <input type="text" name="flags.autoanimationsmodded.macro.name"
+                value="{{lookup flags.autoanimationsmodded.macro 'name'}}">
         </div>
         <div class='flexcol' style='grid-row: 2 / 3;grid-column: 1 / 5;'>
             <label style='font-weight: bold;'>{{localize 'AUTOANIM.args'}}</label>
-            <input type="text" name="flags.autoanimations.macro.args" style='text-align: start;'
-                value="{{lookup flags.autoanimations.macro 'args'}}">
+            <input type="text" name="flags.autoanimationsmodded.macro.args" style='text-align: start;'
+                value="{{lookup flags.autoanimationsmodded.macro 'args'}}">
         </div>
     </div>
 </div>
 {{/unless}}
-{{#if flags.autoanimations.killAnim}}
+{{#if flags.autoanimationsmodded.killAnim}}
 <div class="aa-itemSection-divider">
     <div class="aa-options-odd aa-options-settings">
         <div class='flexcol' style='grid-row: 1 / 2;grid-column: 2 / 5;'>
             <label style='font-weight: bold;'>{{localize 'AUTOANIM.macro'}} {{localize 'AUTOANIM.name'}}</label>
-            <input type="text" name="flags.autoanimations.macro.name"
-                value="{{lookup flags.autoanimations.macro 'name'}}">
+            <input type="text" name="flags.autoanimationsmodded.macro.name"
+                value="{{lookup flags.autoanimationsmodded.macro 'name'}}">
         </div>
         <div class='flexcol' style='grid-row: 2 / 3;grid-column: 1 / 6;'>
             <label style='font-weight: bold;'>{{localize 'AUTOANIM.args'}}</label>
-            <input type="text" name="flags.autoanimations.macro.args" style='text-align: start;'
-                value="{{lookup flags.autoanimations.macro 'args'}}">
+            <input type="text" name="flags.autoanimationsmodded.macro.args" style='text-align: start;'
+                value="{{lookup flags.autoanimationsmodded.macro 'args'}}">
         </div>
     </div>
 </div>

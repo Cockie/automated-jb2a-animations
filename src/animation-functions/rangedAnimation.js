@@ -8,7 +8,7 @@ export async function rangedAnimations(handler, animationData) {
 
     // Sets JB2A database and Global Delay
     //let jb2a = moduleIncludes("jb2a_patreon") === true ? JB2APATREONDB : JB2AFREEDB;
-    let globalDelay = game.settings.get("autoanimations", "globaldelay");
+    let globalDelay = game.settings.get("autoanimations-modded", "globaldelay");
     await wait(globalDelay);
 
     const data = animationData.primary;

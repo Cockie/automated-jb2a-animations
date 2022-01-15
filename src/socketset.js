@@ -4,7 +4,7 @@ import { createActiveEffects5e, deleteActiveEffects5e, checkConcentration, toggl
 export let setupSocket = () => {
     //@ts-ignore
     if (game.modules.get("socketlib")?.active) {
-        socketlibSocket = window.socketlib.registerModule("autoanimations");
+        socketlibSocket = window.socketlib.registerModule("autoanimations-modded");
         socketlibSocket.register("placeTile", placeTile);
         socketlibSocket.register("placeDrawing", placeDrawing);
         socketlibSocket.register("deleteDrawing", deleteDrawing);
